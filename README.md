@@ -13,6 +13,7 @@
 # Run
 -   `bundle install`
 -   `rails db:migrate`
+-   `rake bower:install`
 -   `rails server`
 
 
