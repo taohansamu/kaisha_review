@@ -12,3 +12,11 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+# Use bower
+Rails.application.config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+
+Rails.application.config.assets.paths << Rails.root.join("vendor","assets","bower_components",
+"bootstrap-sass-official","assets","fonts")
+
+Rails.application.config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
