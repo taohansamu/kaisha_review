@@ -1,0 +1,31 @@
+.background-1 {
+	background-color : #F2F2F2;
+}
+.text-custom {
+	margin-top: 0px;
+	font-size: 150%;
+	color : white !important;
+}
+.background-white {
+	background-color : white !important;
+}
+#navtop {
+	position: fixed;
+ 	top: 0px;
+ 	width: 100%;
+ 	height : 38px;
+}
+#logo {
+	height: 31px ;
+	width: 89px ;
+	margin-top: 5px;
+}
+#navbar-cus {
+	margin-top: 5px;
+}
+.top-60 {
+	margin-top : 60px;
+}
+#text-top {
+	margin-top: 0px !important;
+}
