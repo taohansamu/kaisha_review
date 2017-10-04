@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>KaishaReview</title>
+<head>
+<title>Kaisha review</title>
     <%= csrf_meta_tags %>
 
-   
-  </head>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+<body  class = "background-1">
+  <%= render "layouts/header" %>
+  <div class="container top-60">
+  <%= render 'layouts/messages' %>
+  <%= yield %>
+  </div>
+
+</body>
 </html>
