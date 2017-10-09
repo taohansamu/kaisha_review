@@ -9,13 +9,14 @@
         <div class="login-ic">
         <i class="icon-user"></i>
             
-            <%= f.email_field :email,value: 'Email',onfocus:"this.value = '';",onblur:"if (this.value == '') {this.value = 'Email';}"%>
+            <%= f.email_field :email,value: 'Email',onfocus:"if (this.value == 'Email') this.value = '';",onblur:"if (this.value == '') {this.value = 'Email';}"%>
             <div class="clear"> </div>
         </div>
 
         <div class="login-ic">
             <i class="icon"></i>
-            <%= f.password_field :password, autocomplete: "off",value:"Password" ,onfocus:"this.value = '';", onblur:"if (this.value == '') {this.value = 'Password';}" %>
+            <%= f.password_field :password, autocomplete: "off",value:"Password" ,onfocus:"
+            if (this.value == 'Password')this.value = '';", onblur:"if (this.value == '') {this.value = 'Password';}" %>
             <div class="clear"> </div>
         </div>
 
@@ -31,6 +32,16 @@
         <%= f.submit "Log in",class:'btn btn-primary btnt' %>
     </div>
     <% end %>
+    <div class="social-login">
+      <h3>...or login with:</h3>
+      <div class="social-login-buttons">
+          <a class="btn btn-link-1 btn-link-1-facebook" href="#">
+              <i class="fa fa-facebook"></i> Facebook
+          </a>
+        <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
+            <i class="fa fa-google"></i>Google Plus
+        </a>
+       </div>
       </div>
       
-</div>    
+</div>
