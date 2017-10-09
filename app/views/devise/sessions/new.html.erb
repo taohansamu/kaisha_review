@@ -32,16 +32,19 @@
         <%= f.submit "Log in",class:'btn btn-primary btnt' %>
     </div>
     <% end %>
+    <%- if devise_mapping.omniauthable? %>
+    
     <div class="social-login">
-      <h3>...or login with:</h3>
+      <h3>or login with:</h3>
       <div class="social-login-buttons">
-          <a class="btn btn-link-1 btn-link-1-facebook" href="#">
+          <a class="btn btn-link-1 btn-link-1-facebook" href="/users/auth/facebook">
               <i class="fa fa-facebook"></i> Facebook
           </a>
-        <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
+        <a class="btn btn-link-1 btn-link-1-google-plus" href="/users/auth/google_oauth2">
             <i class="fa fa-google"></i>Google Plus
         </a>
        </div>
       </div>
+    <% end -%>
       
 </div>
