@@ -8,15 +8,14 @@
 
         <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email,class:'form-control', autofocus: true %>
+            <%= f.email_field :email,class:'form-control', autofocus: true ,value:"Your e-mail address",onfocus:"this.value = '';",onblur:"if (this.value == '') {this.value = 'Your e-mail address';}" %>
         </div>
 
         <div class="actions">
-            <%= f.submit "Send me reset password instructions" %>
+            <%= f.submit "Send me reset password instructions",class:"submit-button" %>
         </div>
         <% end %>
 
-        <%= render "devise/shared/links" %>
     </div>
     <div class="col-md-3"></div>
 
