@@ -36,6 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # third party gem
 gem 'devise'
 gem "bower-rails", "~> 0.11.0"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
+gem "figaro"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
