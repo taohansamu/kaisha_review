@@ -6,6 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" type="text/css" href="../app/assets/stylesheet/reset.css">
+    <link rel="stylesheet" type="text/css" href="../app/assets/stylesheet/responsive.css">
+
+    <script type="text/javascript" src="../app/assets/javascript/jquery.js"></script>
+    <script type="text/javascript" src="../app/assets/javascript/main.js"></script>
     
 </head>
 
@@ -15,6 +21,6 @@
   <%= render 'layouts/messages' %>
   <%= yield %>
   </div>
-
+  <%= render "layouts/footer" %>
 </body>
 </html>
