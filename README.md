@@ -11,6 +11,7 @@
 - `git checkout -b nguoi_lam/ten_chuc_nang`
     vd `git checkout -b taond/login`
 # Run
+- Chú ý: để cài bower máy cần cài node, cài nodejs như sau: `sudo apt-get install nodejs` & `sudo apt-get install nodejs-legacy`
 -   `bundle install`
 -   `rails db:migrate`
 -   `rake bower:install`
