@@ -59,4 +59,5 @@ bower.json
 # Ignore application configuration
 /config/application.yml
 
-.idea/workspace.xml
+app/views/shared/
+vendor/assets/
