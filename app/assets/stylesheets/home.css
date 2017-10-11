@@ -378,3 +378,13 @@ body {
     font-size: 20px;
     line-height: 20px;
 }
+
+#logo {
+    height: 75px;
+    width: auto;
+    margin-top: 12px;
+}
+a:hover, a:focus {
+    color: black !important;
+    text-decoration: none !important;
+}
