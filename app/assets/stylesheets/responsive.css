@@ -423,6 +423,7 @@ header nav .login_btn:hover{
 
 /*  listings section  */
 .listings{
+    margin-top: 100px;
     padding: 0px;
 }
 
