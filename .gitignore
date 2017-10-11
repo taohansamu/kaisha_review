@@ -61,3 +61,4 @@ bower.json
 
 app/views/shared/
 vendor/assets/
+.idea/
