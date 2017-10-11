@@ -58,3 +58,7 @@ bower.json
 .idea/*
 # Ignore application configuration
 /config/application.yml
+
+app/views/shared/
+vendor/assets/
+.idea/
