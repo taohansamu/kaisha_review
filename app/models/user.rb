@@ -5,6 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  mount_uploader :avatar, AvatarUploader
+  # User Avatar Validation
+  validates_integrity_of  :avatar
+  validates_processing_of :avatar
+  
   def self.new_with_session params, session
     super.tap do |user|
       if data = session["devise.facebook_data"] &&
