@@ -1,0 +1,46 @@
+<div class="login-form">
+      <div class="top-login">
+        <span><img src="/group.png" alt=""/></span>
+      </div>
+      <h1>Sign up</h1>
+      <div class="login-top">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <div class="login-ic">
+        <i class="icon-user"></i>
+            
+            <%= f.text_field :username,value: 'Your Username',onfocus:"if (this.value == 'Your Username') this.value = '';",onblur:"if (this.value == '') {this.value = 'Your Username';}"%>
+            <div class="clear"> </div>
+        </div>
+        <div class="login-ic">
+        <i class="icon-email"></i>
+            
+            <%= f.email_field :email,value: 'Your Email',onfocus:"if (this.value == 'Your Email') this.value = '';",onblur:"if (this.value == '') {this.value = 'Your Email';}"%>
+            <div class="clear"> </div>
+        </div>
+
+        <div class="login-ic">
+            <i class="icon"></i>
+            <%= f.password_field :password, autocomplete: "off",value:"Password" ,onfocus:"if (this.value == 'Password')
+            this.value = '';", onblur:"if (this.value == '') {this.value = 'Password';}" %>
+            <div class="clear"> </div>
+        </div>
+        <div class="login-ic">
+            <i class="icon"></i>
+            <%= f.text_field :password_confirmation, autocomplete: "off",value:"Password Confirmation" ,onfocus:"this.value = '';this.type='password'", onblur:"if (this.value == '') {this.value = 'password confirmation';this.type='text'}" %>
+            <div class="clear"> </div>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+        <div class="remember">
+          
+      </div>
+      <% end -%>
+
+      <div class="log-bwn">
+        <%= f.submit "Sign up",class:'btn btn-primary btnt' %>
+    </div>
+    <% end %>
+      </div>
+      
+</div>

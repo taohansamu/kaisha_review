@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyText
+  salary_benefit_rate: 1
+  office_workspace_rate: 1
+  care_about_staff_rate: 1
+
+two:
+  comment: MyText
+  salary_benefit_rate: 1
+  office_workspace_rate: 1
+  care_about_staff_rate: 1

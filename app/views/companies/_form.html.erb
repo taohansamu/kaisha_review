@@ -1,0 +1,57 @@
+<%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :company_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employees %>
+    <%= form.number_field :employees, id: :company_employees %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website, id: :company_website %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :company_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estabish %>
+    <%= form.number_field :estabish, id: :company_estabish %>
+  </div>
+
+  <div class="field">
+    <%= form.label :investment %>
+    <%= form.number_field :investment, id: :company_investment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cover %>
+    <%= form.text_field :cover, id: :company_cover %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rank %>
+    <%= form.text_field :rank, id: :company_rank %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

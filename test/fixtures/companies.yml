@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  employees: 1
+  website: MyString
+  address: MyString
+  estabish: 1
+  investment: 1
+  cover: MyString
+  rank: 1.5
+
+two:
+  name: MyString
+  employees: 1
+  website: MyString
+  address: MyString
+  estabish: 1
+  investment: 1
+  cover: MyString
+  rank: 1.5

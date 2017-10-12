@@ -33,6 +33,19 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# third party gem
+gem 'devise'
+gem "bower-rails", "~> 0.11.0"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
+gem "figaro"
+gem 'activerecord-session_store'
+gem "bootstrap-sass", "3.3.7"
+gem "carrierwave", "~> 1.0"
+gem 'paperclip', '~> 4.1'
+gem "mini_magick", "~> 4.3"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
