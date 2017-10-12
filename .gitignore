@@ -59,6 +59,8 @@ bower.json
 # Ignore application configuration
 /config/application.yml
 
-app/views/shared/
 vendor/assets/
 .idea/
+
+public/uploads/
+app/views/shared/
