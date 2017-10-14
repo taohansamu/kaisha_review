@@ -12,6 +12,3 @@
 //
 //= require rails-ujs
 //= require_tree .
-//= require angular/angular
-//= require jquery
-//= require bootstrap-sass-official/assets/javascripts/bootstrap
