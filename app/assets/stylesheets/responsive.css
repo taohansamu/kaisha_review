@@ -88,8 +88,8 @@ h5, h6          { font-weight: bolder }
 
 header{
     width: 100%;
-    height: 100px;
-    background: rgba(28, 54, 85, .2);
+    height: 80px;
+    background: black;
 }
 
 header .logo{
@@ -120,7 +120,7 @@ header nav{
 
 
 header nav ul{
-    margin-top: 40px;
+    margin-top: 30px;
     list-style: none;
     overflow: hidden;
     float: left;
@@ -560,7 +560,7 @@ header nav .login_btn:hover{
 /*  footer  */
 footer{
     padding-top: 0px;
-    background: #95badf;
+    background: black;
 }
 
 footer .footer > ul{

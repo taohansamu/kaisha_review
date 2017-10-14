@@ -1,34 +1,68 @@
-<section class="">
-  <header>
-    <div class="wrapper">
+<nav class="navbar navbar-default" id="menuTop">
+  <div class="container">
+    <div class="navbar-header">
       <a href="/"><img src='/logo.png' alt="Smiley face" id="logo"></a>
-      <nav>
-        <ul>
-          <li><a href="#">abc</a></li>
-          <li><a href="#">xyz</a></li>
-          <li><a href="#">123</a></li>
-          <li><a href="#">456</a></li>
-          <li><a href="#">789</a></li>          
-          <% if !current_user %>
-            <li ><%= link_to "Login",new_user_session_path %></li>
-          <% else %>
-            <li>
-              <a href="#" role="button" aria-haspopup="true" aria-expanded="false" id ="text-top"><%= current_user.email %></a>
-            </li>
-            <li><%= link_to "Logout",destroy_user_session_path, method: :delete %></li>
-          <% end %>
-        </ul>
-      </nav>
     </div>
-  </header><!--  end header section  -->
-</section><!--  end hero section  -->
 
+    <div class="collapse navbar-collapse" id="navbar-collapse-2">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+<form>
+  <input type="text" name="search" placeholder="サーチ...">
+</form>          
+        </li>
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#">アバウト</a></li>
+        <li><a href="#">サービス</a></li>
+        <li><a href="#">ワーク</a></li>
+        <li><a href="#">ニュース</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+             <!-- <img src="avatar.png" class="img-circle" alt="Cinque Terre" width="50" height="50"> --> 
+             <%= image_tag("kaisha_logo.png", size: "40x40", :alt => "rss feed", :class => "img-circle") %>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" style="padding: 5px 15px 5px 15px;">
+            <li ><a href="#"> セットアップ</a></li><hr style="margin-top: 0px; margin-bottom: 0px;">
+            <li ><a href="#"> ログアウト</a></li>
+          </ul>
+        </li>            
+        <% if !current_user %>
+          <li>
+            <div class="btn-outline collapsed btn btn-default">
+              <%= link_to "  ログイン",new_user_session_path %>
+            </div>                
+          </li>
+        <% else %>
+          <li>
+            <a href="#" role="button" aria-haspopup="true" aria-expanded="false" id ="text-top"><%= current_user.email %></a>
+          </li>
+          <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+        <% end %>            
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav><!-- /.navbar -->
+<style type="text/css">
+  .fixed {
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    width: 1291px;
+  }
+</style>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        pos = $("#menuTop").position();
+        $(window).scroll(function(){
+          var posScroll = $(document).scrollTop();
+          if (parseInt(posScroll) > parseInt(pos.top)) {
+            $("#menuTop").addClass('fixed');
+          } else {
+            $("#menuTop").removeClass('fixed');
+          }
+        });
 
-<section class="search">
-  <div class="wrapper">
-    <form action="#" method="post">
-      <input type="text" id="search" name="search" placeholder="Search"  autocomplete="off"/>
-      <input type="submit" id="submit_search" name="submit_search"/>
-    </form>
-  </div>
-</section><!--  end search section  -->
+    });
+</script>
