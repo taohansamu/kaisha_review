@@ -1,0 +1,130 @@
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+
+$color-gray: #818181;
+$color-mine-shaft: #303030;
+$color-pomegranate: #f4511e;
+$color-white: #fff;
+$white-milk: #d8c8cc;
+$yellow-turmeric: #a79f2f;
+$gray-ash: #556270;
+$pink-white: #ff6b6b;
+
+body {
+  color: $color-gray;
+  font: 400 15px Lato, sans-serif;
+  line-height: 1.8;
+  padding-top: 50px;
+}
+
+.jumbotron {
+  background-color: $color-mine-shaft;
+  color: $color-pomegranate;
+  font-family: Montserrat, sans-serif;
+  padding: 100px 25px;
+}
+
+.navbar {
+  background-color: $color-pomegranate;
+  border: 0;
+  border-radius: 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 12px !important;
+  letter-spacing: 4px;
+  line-height: 1.42857143 !important;
+  margin-bottom: 0;
+  z-index: 9999;
+
+  li {
+    a {
+      color: $color-white !important;
+    }
+  }
+
+  .navbar-brand {
+    color: $color-white !important;
+  }
+}
+
+.navbar-nav {
+  li.active {
+    a {
+      background-color: $color-white !important;
+      color: $color-mine-shaft !important;
+    }
+  }
+
+  a {
+    &:hover {
+      background-color: $color-white !important;
+      color: $color-mine-shaft !important;
+    }
+  }
+}
+
+.navbar-default {
+  .navbar-toggle {
+    border-color: transparent;
+    color: $color-white !important;
+  }
+}
+
+.dropdown-menu {
+  background-color: $color-pomegranate;
+}
+
+.subject-index {
+  .jumbotron {
+    background: linear-gradient(to right, $gray-ash, $pink-white);
+    color: $white-milk;
+
+    p {
+      font-style: italic;
+      font-weight: 100;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+
+    strong {
+      color: $yellow-turmeric;
+      font-size: 25px;
+    }
+  }
+
+  img {
+    width: 200px;
+  }
+}
+
+
+$color-white: #fff;
+$color-emerald: #5fcf80;
+$color-alto: #d9d9d9;
+
+#logo {
+  border: 1px solid $color-alto;
+  border-radius: 25px;
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  width: 100px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.round-image-50 {
+  background-color: $color-white;
+  border: 1px solid $color-alto;
+  border-radius: 25px;
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  width: 50px;
+
+  img {
+    width: 100%;
+  }
+}

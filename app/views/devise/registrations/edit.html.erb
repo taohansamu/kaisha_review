@@ -4,6 +4,14 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :avatar%>
+    <%= f.file_field :avatar, class: "control-label"%>
+    <% if @user.avatar? %>
+      <%= image_tag @user.avatar.thumb.url %>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
