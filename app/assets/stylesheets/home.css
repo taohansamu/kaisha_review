@@ -65,7 +65,7 @@ img{max-width:100%;}
        background-size: cover;
 }
 .login-form{
-
+	
 	padding:100px 0px 50px 0px;
 
 }
@@ -117,12 +117,12 @@ img{max-width:100%;}
 	margin: 0 auto;
 }
 .login-ic {
-    background: rgba(255, 255, 255, 0.32);
+    background: rgba(255, 255, 255, 0.32); 
 	margin-bottom:1.5em;
-    padding: 8px;
+    padding: 8px;	
 }
 .login-ic i {
-
+    
     width: 38px;
     height: 38px;
     float: left;
@@ -130,17 +130,17 @@ img{max-width:100%;}
     display: inline-block;
 }
 .login-ic i.icon-user {
-    background: url(m.png)no-repeat 6px 6px;
-    background-color :#333;
+    background: url(m.png)no-repeat 6px 6px; 
+    background-color :#333; 
 }
 .login-ic i.icon {
-    background: url(l.png)no-repeat 6px 6px;
-    background-color :#333;
+    background: url(l.png)no-repeat 6px 6px; 
+    background-color :#333;  
 }
 .login-ic i.icon-email {
     background: url(email.png)no-repeat 6px 6px;
-    background-color :#333;
-
+    background-color :#333;   
+    
 }
 .login-ic input[type="email"],.login-ic input[type="text"],.login-ic  input[type="password"] {
 	    float: left;
@@ -312,7 +312,7 @@ body {
 }
 .remember a:hover {
     color: hotpink !important;
-
+    
     text-decoration: none !important;
 }
 .remember a:visited {
@@ -334,7 +334,7 @@ body {
 }
 .submit-button:hover{
     background:#1D1C1C;
-    border-bottom: 3px solid #2F2F2F;
+    border-bottom: 3px solid #2F2F2F;  
     transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
@@ -373,7 +373,7 @@ body {
 
 .btn-link-1 i {
     padding-right: 25px;
-    padding-left: 5px;
+    padding-left: 5px; 
     vertical-align: middle;
     font-size: 20px;
     line-height: 20px;
@@ -469,6 +469,7 @@ Follow me on Twitter @maridlcrmn
 }
 .navbar-nav > li > a {
     line-height: 40px !important;
+    color: #ffffffb3 !important;
 }
 .navbar-nav > li > form {
     margin-top: 19px;
@@ -496,4 +497,23 @@ Follow me on Twitter @maridlcrmn
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #fff !important;
+    background-color: #000000 !important;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: black !important;
+    color: white !important;
+}
+.dropdown-menu > li > a {
+    color: black !important;
+}
+
+
+.wrapper ul li a img {
+    width: 60% !important;
+    height: 60% !important;
+    margin: 50px !important;
+    max-height: 98px !important;
+}
+.listings ul.properties_list li:hover {
+    box-shadow: 0 0 5px 1px #bcbcbc !important;
 }

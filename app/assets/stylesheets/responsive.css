@@ -434,11 +434,15 @@ header nav .login_btn:hover{
 
 .listings ul.properties_list li{
     display: block;
-    width: 30.90909090909091%;
-    height: auto;
+    width: 100%;
+    height: auto;    
     position: relative;
-    float: left;
+    float: left;    
     margin: 0 3.636363636363636% 3.636363636363636% 0;
+    border: 1px black;  
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #f2f1f1;
 }
 
 .listings ul.properties_list li img.property_img{
@@ -473,9 +477,9 @@ header nav .login_btn:hover{
 
 .listings ul li .property_details{
     padding: 2.941176470588235% 5.882352941176471% 4.117647058823529% 5.882352941176471%;
-    border-bottom: 1px solid #f2f1f1;
+/*    border-bottom: 1px solid #f2f1f1;
     border-left: 1px solid #f2f1f1;
-    border-right: 1px solid #f2f1f1;
+    border-right: 1px solid #f2f1f1;*/
 
     transition: all .2s linear;
     -webkit-transition: all .2s linear;
@@ -483,11 +487,11 @@ header nav .login_btn:hover{
     -o-transition: all .2s linear;
 }
 
-.listings ul li:hover .property_details{
+/*.listings ul li:hover .property_details{
     border-bottom: 1px solid #95badf;
     border-left: 1px solid #95badf;
     border-right: 1px solid #95badf;
-}
+}*/
 
 .listings ul li .property_details h1{
     color: #666464;

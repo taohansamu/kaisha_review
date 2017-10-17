@@ -13,21 +13,10 @@
         </li>
         <li><a href="#">ホーム</a></li>
         <li><a href="#">アバウト</a></li>
-        <li><a href="#">サービス</a></li>
-        <li><a href="#">ワーク</a></li>
+        <li><a href="#">サービス</a></li> 
         <li><a href="#">ニュース</a></li>
         <li><a href="#">お問い合わせ</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-             <!-- <img src="avatar.png" class="img-circle" alt="Cinque Terre" width="50" height="50"> --> 
-             <%= image_tag("kaisha_logo.png", size: "40x40", :alt => "rss feed", :class => "img-circle") %>
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu" style="padding: 5px 15px 5px 15px;">
-            <li ><a href="#"> セットアップ</a></li><hr style="margin-top: 0px; margin-bottom: 0px;">
-            <li ><a href="#"> ログアウト</a></li>
-          </ul>
-        </li>            
+
         <% if !current_user %>
           <li>
             <div class="btn-outline collapsed btn btn-default">
@@ -35,11 +24,19 @@
             </div>                
           </li>
         <% else %>
-          <li>
-            <a href="#" role="button" aria-haspopup="true" aria-expanded="false" id ="text-top"><%= current_user.email %></a>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+               <!-- <img src="avatar.png" class="img-circle" alt="Cinque Terre" width="50" height="50"> --> 
+               <%= image_tag("kaisha_logo.png", size: "40x40", :alt => "rss feed", :class => "img-circle") %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-item" style="padding: 5px 15px 5px 15px;">
+              <li ><a href="#"> セットアップ</a></li><hr style="margin-top: 0px; margin-bottom: 0px;">
+              <li ><a href="#"><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></a></li>
+            </ul>
           </li>
-          <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
-        <% end %>            
+        <% end %>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
