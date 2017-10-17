@@ -1,0 +1,24 @@
+<%= form_for(resource, as: resource_name, url: users_update_profile_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar%>
+      <%= f.file_field :avatar, class: "control-label"%>
+      <% if @user.avatar? %>
+          <%= image_tag @user.avatar.thumb.url %>
+      <% end %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
+<% end %>

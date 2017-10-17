@@ -1,0 +1,13 @@
+<div class="profile-userpic">
+  <%= image_tag(@user.avatar.url, class: "img-responsive") if @user.avatar?%>
+</div>
+<!-- END SIDEBAR USERPIC -->
+<!-- SIDEBAR USER TITLE -->
+<div class="profile-usertitle">
+  <div class="profile-usertitle-name">
+    @user.username
+  </div>
+  <div class="profile-usertitle-job">
+    @user.email
+  </div>
+</div>

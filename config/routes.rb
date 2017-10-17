@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  put 'users/update_profile'
+
+
+  put '/update_password' => 'devise/registrations#update_password'
+
   get 'home/index'
 
   resources :skills
