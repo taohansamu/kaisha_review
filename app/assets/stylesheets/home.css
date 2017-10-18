@@ -65,7 +65,7 @@ img{max-width:100%;}
        background-size: cover;
 }
 .login-form{
-
+	
 	padding:100px 0px 50px 0px;
 
 }
@@ -117,12 +117,12 @@ img{max-width:100%;}
 	margin: 0 auto;
 }
 .login-ic {
-    background: rgba(255, 255, 255, 0.32);
+    background: rgba(255, 255, 255, 0.32); 
 	margin-bottom:1.5em;
-    padding: 8px;
+    padding: 8px;	
 }
 .login-ic i {
-
+    
     width: 38px;
     height: 38px;
     float: left;
@@ -130,17 +130,17 @@ img{max-width:100%;}
     display: inline-block;
 }
 .login-ic i.icon-user {
-    background: url(m.png)no-repeat 6px 6px;
-    background-color :#333;
+    background: url(m.png)no-repeat 6px 6px; 
+    background-color :#333; 
 }
 .login-ic i.icon {
-    background: url(l.png)no-repeat 6px 6px;
-    background-color :#333;
+    background: url(l.png)no-repeat 6px 6px; 
+    background-color :#333;  
 }
 .login-ic i.icon-email {
     background: url(email.png)no-repeat 6px 6px;
-    background-color :#333;
-
+    background-color :#333;   
+    
 }
 .login-ic input[type="email"],.login-ic input[type="text"],.login-ic  input[type="password"] {
 	    float: left;
@@ -312,7 +312,7 @@ body {
 }
 .remember a:hover {
     color: hotpink !important;
-
+    
     text-decoration: none !important;
 }
 .remember a:visited {
@@ -334,7 +334,7 @@ body {
 }
 .submit-button:hover{
     background:#1D1C1C;
-    border-bottom: 3px solid #2F2F2F;
+    border-bottom: 3px solid #2F2F2F;  
     transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
@@ -373,18 +373,154 @@ body {
 
 .btn-link-1 i {
     padding-right: 25px;
-    padding-left: 5px;
+    padding-left: 5px; 
     vertical-align: middle;
     font-size: 20px;
     line-height: 20px;
 }
 
 #logo {
-    height: 75px;
+    height: 40px;
     width: auto;
-    margin-top: 12px;
+    margin-top: 15px;
 }
-a:hover, a:focus {
-    color: black !important;
+h1 a:hover, a:focus {
+    color: #000000 !important;
     text-decoration: none !important;
+}
+.nav-item a{
+    color: white !important;
+}
+
+/*
+Code snippet by maridlcrmn for Bootsnipp.com
+Follow me on Twitter @maridlcrmn
+*/
+
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 0px 20px; margin: 15px auto; transition: transform 0.3s; }
+
+.navbar .navbar-collapse { position: relative; overflow: hidden !important; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+.navbar-nav.navbar-right .btn:not(.collapsed) {
+    background-color: rgb(111, 84, 153);
+    border-color: rgb(111, 84, 153);
+    color: rgb(255, 255, 255);
+}
+
+.navbar.navbar-default .nav-collapse,
+.navbar.navbar-inverse .nav-collapse {
+    height: auto !important;
+    transition: transform 0.3s;
+    transform: translate(0px,-50px);
+}
+.navbar.navbar-default .nav-collapse.in,
+.navbar.navbar-inverse .nav-collapse.in {
+    transform: translate(0px,0px);
+}
+
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; } 
+    
+    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+    .navbar .nav-collapse .navbar-form { margin: 0; }
+    .nav-collapse>li { float: none; }
+    
+    .navbar.navbar-default .nav-collapse,
+    .navbar.navbar-inverse .nav-collapse {
+        transform: translate(-100%,0px);
+    }
+    .navbar.navbar-default .nav-collapse.in,
+    .navbar.navbar-inverse .nav-collapse.in {
+        transform: translate(0px,0px);
+    }
+    
+    .navbar.navbar-default .nav-collapse.slide-down,
+    .navbar.navbar-inverse .nav-collapse.slide-down {
+        transform: translate(0px,-100%);
+    }
+    .navbar.navbar-default .nav-collapse.in.slide-down,
+    .navbar.navbar-inverse .nav-collapse.in.slide-down {
+        transform: translate(0px,0px);
+    }
+}
+.container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
+    margin-right: 18px !important;
+    margin-left: 18px !important;
+}
+.navbar {
+    min-height: 60px !important;
+    text-align: center !important;
+    vertical-align: baseline !important;
+    background: transparent !important;
+    background: black !important;
+}
+.navbar-nav > li > a {
+    line-height: 40px !important;
+    color: #ffffffb3 !important;
+}
+.navbar-nav > li > form {
+    margin-top: 19px;
+}
+.navbar-nav > li > div {
+    line-height: 40px !important;
+}
+.navbar-brand {
+    line-height: 40px !important;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: black !important;
+}
+.navbar-default {
+    border-color: black !important;
+}
+.btn-default:hover {
+    color: #333;
+    background-color: #0c0b0b !important;
+    border-color: white !important;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: #0c0b0b !important;
+    color: white !important;
+    font-size: 14px !important;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #fff !important;
+    background-color: #000000 !important;
+}
+a {
+    text-decoration: none !important;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: black !important;
+    color: white !important;
+}
+.dropdown-menu > li > a {
+    color: black !important;
+}
+.navbar-default .navbar-nav > li > a {
+    font-size: 13px !important;
+}
+
+
+.wrapper ul li a img {
+    width: 60% !important;
+    height: 60% !important;
+    margin: 50px !important;
+    max-height: 98px !important;
+}
+.listings ul.properties_list li:hover {
+    box-shadow: 0 0 5px 1px #bcbcbc !important;
 }

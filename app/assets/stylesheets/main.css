@@ -448,9 +448,9 @@ header nav .login_btn:hover{
 
 .listings ul li .property_details{
     padding: 10px 20px 14px 20px;
-    border-bottom: 1px solid #f2f1f1;
+/*    border-bottom: 1px solid #f2f1f1;
     border-left: 1px solid #f2f1f1;
-    border-right: 1px solid #f2f1f1;
+    border-right: 1px solid #f2f1f1;*/
 
     transition: all .2s linear;
     -webkit-transition: all .2s linear;
@@ -458,11 +458,11 @@ header nav .login_btn:hover{
     -o-transition: all .2s linear;
 }
 
-.listings ul li:hover .property_details{
+/*.listings ul li:hover .property_details{
     border-bottom: 1px solid #95badf;
     border-left: 1px solid #95badf;
     border-right: 1px solid #95badf;
-}
+}*/
 
 .listings ul li .property_details h1{
     color: #666464;
