@@ -1,56 +1,64 @@
-<div class="row">
-  <nav class="navbar navbar-inverse ">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a href="/"><img src='/logo.png' alt="Smiley face" id="logo"></a>
-      </div>
+<nav class="navbar navbar-default" id="menuTop">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/"><img src='/logo.png' alt="Smiley face" id="logo"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-2">
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <span class="glyphicon glyphicon-align-justify"></span>
-          </a>
-          <ul class="dropdown-menu" style="background-color: black">
-            <% if user_signed_in? %>
-                <li>
-                  <%= link_to edit_user_registration_path do %>
-                      <span class="glyphicon glyphicon-user"></span>
-                      <%= "Profile" %>
-                  <% end %>
-                </li>
-            <% else %>
-                <li>
-                  <%= link_to new_user_registration_path do %>
-                      <span class="glyphicon glyphicon-new-window"></span>
-                      <%= "Sign up" %>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to new_user_session_path do %>
-                      <span class="glyphicon glyphicon-log-in"></span>
-                      <%= "Log in" %>
-                  <% end %>
-                </li>
-            <% end %>
-          </ul>
-
-          <% if user_signed_in? %>
-              <% if current_user.avatar.present? %>
-                <li class="round-image-50">
-                  <%= image_tag current_user.avatar.thumb.url %>
-                </li>
-            <% end %>
-        <%end %>
-
+        <li style="width: 250px;">
+          <form>
+            <input style="width: 100%;" type="text" name="search" placeholder="サーチ...">
+          </form>
+        </li>
+        <li><a href="#">ホーム</a></li>
+        <li><a href="#">アバウト</a></li>
+        <li><a href="#">サービス</a></li> 
+        <li><a href="#">ニュース</a></li>
+        <li><a href="#">お問い合わせ</a></li>
 
         <% if !current_user %>
-            <li ><%= link_to "Login",new_user_session_path %></li>
+          <li>
+            <div class="btn-outline collapsed btn btn-default">
+              <%= link_to "  ログイン",new_user_session_path %>
+            </div>                
+          </li>
         <% else %>
-            <li>
-              <a href="#" role="button" aria-haspopup="true" aria-expanded="false" id ="text-top"><%= current_user.username %></a>
-            </li>
-            <li><%= link_to "Logout",destroy_user_session_path, method: :delete %></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+               <!-- <img src="avatar.png" class="img-circle" alt="Cinque Terre" width="50" height="50"> --> 
+               <%= image_tag("kaisha_logo.png", size: "40x40", :alt => "rss feed", :class => "img-circle") %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-item" style="padding: 5px 15px 5px 15px;">
+              <li ><a href="#"> セットアップ</a></li><hr style="margin-top: 0px; margin-bottom: 0px;">
+              <li ><a href="#"><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></a></li>
+            </ul>
+          </li>
         <% end %>
       </ul>
-    </div>
-  </nav>
-</div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav><!-- /.navbar -->
+<style type="text/css">
+  .fixed {
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    width: 100%;
+  }
+</style>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        pos = $("#menuTop").position();
+        $(window).scroll(function(){
+          var posScroll = $(document).scrollTop();
+          if (parseInt(posScroll) > parseInt(pos.top)) {
+            $("#menuTop").addClass('fixed');
+          } else {
+            $("#menuTop").removeClass('fixed');
+          }
+        });
+
+    });
+</script>
