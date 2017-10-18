@@ -12,7 +12,22 @@
 //
 //= require rails-ujs
 //= require_tree .
-//= require angular/angular
 //= require jquery
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
-//= require trix
+$(document).ready(function() {
+	console.log(1);
+	$('.navigation__item').click(function(){
+	    if($(this).hasClass('overview')) {
+	    	$('.overview').addClass('active');
+	    	$('.overview').removeClass('disable');
+	    	$('.review-tab').addClass('disable');
+	    	$('.review-tab').removeClass('active');
+	    } else {
+	    	$('.review-tab').addClass('active');
+	    	$('.review-tab').removeClass('disable');
+	    	$('.overview').addClass('disable');
+	    	$('.overview').removeClass('active');
+	    }
+	    ;
+	});
+ } );

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   put '/update_password' => 'devise/registrations#update_password'
 
   get 'home/index'
-
+  get 'home/view'
+  get 'home/reviews'
   resources :skills
   resources :types
   resources :companies
