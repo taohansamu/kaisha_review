@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :companies, dependent: :destroy
+  default_scope -> { order(created_at: :desc) }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

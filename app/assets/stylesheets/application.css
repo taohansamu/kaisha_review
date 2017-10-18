@@ -15,6 +15,7 @@
  *= require 'bootstrap-sass-official'
  *= require 'font-awesome'
  *= require 'home'
+ *= require trix
  */
 /*flash*/
 .alert-error {

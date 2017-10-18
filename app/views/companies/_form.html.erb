@@ -15,7 +15,14 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :company_name %>
   </div>
-
+    <div class="field">
+      <%= form.label :logo %>
+      <%= form.file_field :logo, id: :company_logo, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+    <div class="field">
+      <%= form.label :cover %>
+      <%= form.file_field :cover, id: :company_cover, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
   <div class="field">
     <%= form.label :employees %>
     <%= form.number_field :employees, id: :company_employees %>
@@ -41,16 +48,10 @@
     <%= form.number_field :investment, id: :company_investment %>
   </div>
 
-  <div class="field">
-    <%= form.label :cover %>
-    <%= form.text_field :cover, id: :company_cover %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rank %>
-    <%= form.text_field :rank, id: :company_rank %>
-  </div>
-
+    <div class="field">
+      <%= form.label :overview %>
+      <%= form.trix_editor :overview, id: :company_overview %>
+    </div>
   <div class="actions">
     <%= form.submit %>
   </div>

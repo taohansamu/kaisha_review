@@ -15,3 +15,4 @@
 //= require angular/angular
 //= require jquery
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
+//= require trix
