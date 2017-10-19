@@ -11,44 +11,44 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :company_name %>
+    <%= form.text_field :name, id: :company_name , class:"form-control"%>
   </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :logo %>
-      <%= form.file_field :logo, id: :company_logo, accept: 'image/jpeg,image/gif,image/png' %>
+      <%= form.file_field :logo, id: :company_logo, class:"form-control", accept: 'image/jpeg,image/gif,image/png' %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :cover %>
-      <%= form.file_field :cover, id: :company_cover, accept: 'image/jpeg,image/gif,image/png' %>
+      <%= form.file_field :cover, id: :company_cover, class:"form-control", accept: 'image/jpeg,image/gif,image/png' %>
     </div>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :employees %>
-    <%= form.number_field :employees, id: :company_employees %>
+    <%= form.number_field :employees, id: :company_employees, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :website %>
-    <%= form.text_field :website, id: :company_website %>
+    <%= form.text_field :website, id: :company_website, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :address %>
-    <%= form.text_field :address, id: :company_address %>
+    <%= form.text_field :address, id: :company_address , class:"form-control"%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :estabish %>
-    <%= form.number_field :estabish, id: :company_estabish %>
+    <%= form.number_field :estabish, id: :company_estabish, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :investment %>
-    <%= form.number_field :investment, id: :company_investment %>
+    <%= form.number_field :investment, id: :company_investment, class:"form-control" %>
   </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :overview %>
       <%= form.trix_editor :overview, id: :company_overview %>
     </div>

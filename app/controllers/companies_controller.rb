@@ -1,11 +1,13 @@
 class CompaniesController < ApplicationController
+
   before_action :authenticate_user!, only: [:create, :destroy, :update, :edit]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = Company.paginate(:page => params[:page])
+    render json: @companies
   end
 
   # GET /companies/1

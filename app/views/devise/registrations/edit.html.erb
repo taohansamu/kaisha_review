@@ -29,15 +29,32 @@
       <!-- END MENU -->
     </div>
   </div>
-  <div class="col-md-8 tab-content profile-sidebar fill">
+  <div class="col-md-8 tab-content profile-sidebar">
     <div id="update_form" class="tab-pane fade in active">
-      <%= render 'users/update_form' %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= render 'users/update_form' %>
+        </div>
+        <div class="col-md-4=2"></div>
+      </div>
     </div>
     <div id="change_password_form" class="tab-pane fade">
-      <%= render 'users/change_password_form' %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= render 'users/change_password_form' %>
+        </div>
+        <div class="col-md-4=2"></div>
+      </div>
+
     </div>
     <div id="cancel_account_form" class="tab-pane fade">
-      <%= render 'users/cancel_account_form' %>
+      <div class="row">
+        <div class="col-md-10">
+          <%= render 'users/cancel_account_form' %>
+        </div>
+        <div class="col-md-4=2"></div>
+      </div>
+
     </div>
 
   </div>

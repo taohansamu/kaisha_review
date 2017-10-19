@@ -1,38 +1,50 @@
-<nav class="navbar navbar-default" id="menuTop">
+<nav class="navbar navbar-inverse" id="menuTop">
   <div class="container">
     <div class="navbar-header">
-      <a href="/"><img src='/logo.png' alt="Smiley face" id="logo"></a>
+      <%= link_to root_path do %>
+      <img src='/logo.png' alt="Smiley face" id="logo">
+      <% end %>
     </div>
-
     <div class="collapse navbar-collapse" id="navbar-collapse-2">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left">
         <li style="width: 250px;">
-          <form>
-            <input style="width: 100%;" type="text" name="search" placeholder="サーチ...">
+
+          <form >
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="サーチ...">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+            </div>
           </form>
         </li>
-        <li><a href="#">ホーム</a></li>
-        <li><a href="#">アバウト</a></li>
-        <li><a href="#">サービス</a></li> 
-        <li><a href="#">ニュース</a></li>
+
+        <li><%= link_to  "ホーム", root_path %></li>
+        <% if admin_signed? %>
+            <li><%= link_to "新しい会社", new_company_path%></li>
+        <% end %>
         <li><a href="#">お問い合わせ</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
 
         <% if !current_user %>
-          <li>
-            <div class="btn-outline collapsed btn btn-default">
-              <%= link_to "  ログイン",new_user_session_path %>
+            <li>
+              <div class="btn-outline collapsed btn btn-default">
+                <%= link_to "  ログイン",new_user_session_path %>
             </div>                
           </li>
         <% else %>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-               <!-- <img src="avatar.png" class="img-circle" alt="Cinque Terre" width="50" height="50"> --> 
-               <%= image_tag("kaisha_logo.png", size: "40x40", :alt => "rss feed", :class => "img-circle") %>
+               <%= image_tag(current_user.avatar.thumb.url, size: "40x40", :alt => "rss feed", :class => "img-circle") %>
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu dropdown-item" style="padding: 5px 15px 5px 15px;">
-              <li ><a href="#"> セットアップ</a></li><hr style="margin-top: 0px; margin-bottom: 0px;">
-              <li ><a href="#"><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></a></li>
+              <li ><%= link_to "プロフィル",edit_user_registration_path %></li><hr style="margin-top: 0px; margin-bottom: 0px;">
+              <li ><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
         <% end %>

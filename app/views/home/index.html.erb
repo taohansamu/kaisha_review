@@ -1,129 +1,38 @@
 <section class="listings">
-	<div class="wrapper">
+	<div class="wrapper" ng-controller="HomeCtrl">
 		<ul class="properties_list">
-			<div class="row">
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<li>
-						<a href="#">
-							<%= image_tag("ban-vien-co-ltd-logo-170-151.png", :alt => "rss feed") %>
-						</a>
-						<div class="property_details">
-							<h1>
-								<a href="#">ABCXYZ 会社</a>
-							</h1>
-							<h2>アドレス : .....</h2>
-						</div>
-					</li>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-			      <li>
-			        <a href="#">
-			          <%= image_tag("fpt-software-logo-170-151.png", :alt => "rss feed") %>
-			        </a>
-			        <div class="property_details">
-			          <h1>
-			            <a href="#">ABCXYZ 会社</a>
-			          </h1>
-			          <h2>アドレス : .....</h2>
-			        </div>
-			      </li>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<li>
-						<a href="#">
-							<%= image_tag("kms-technology-logo-170-151.png", :alt => "rss feed") %>
-						</a>
-						<div class="property_details">
-							<h1>
-								<a href="#">ABCXYZ 会社</a>
-							</h1>
-							<h2>アドレス : .....</h2>
-						</div>
-					</li>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<li>
-						<a href="#">
-							<%= image_tag("luxoft-vietnam-logo-170-151.png", :alt => "rss feed") %>
-						</a>
-						<div class="property_details">
-							<h1>
-								<a href="#">ABCXYZ 会社</a>
-							</h1>
-							<h2>アドレス : .....</h2>
-						</div>
-					</li>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<li>
-						<a href="#">
-							<%= image_tag("ban-vien-co-ltd-logo-170-151.png", :alt => "rss feed") %>
-						</a>
-						<div class="property_details">
-							<h1>
-								<a href="#">ABCXYZ 会社</a>
-							</h1>
-							<h2>アドレス : .....</h2>
-						</div>
-					</li>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<li>
-						<a href="#">
-							<%= image_tag("misfit-logo-170-151.jpg", :alt => "rss feed") %>
-						</a>
-						<div class="property_details">
-							<h1>
-								<a href="#">ABCXYZ 会社</a>
-							</h1>
-							<h2>アドレス : .....</h2>
-						</div>
-					</li>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<li>
-						<a href="#">
-							<%= image_tag("automic-software-gmbh-in-hanoi-logo-170-151.jpg", :alt => "rss feed") %>
-						</a>
-						<div class="property_details">
-							<h1>
-								<a href="#">ABCXYZ 会社</a>
-							</h1>
-							<h2>アドレス : .....</h2>
-						</div>
-					</li>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<li>
-						<a href="#">
-							<%= image_tag("cba-solutions-logo-170-151.jpg", :alt => "rss feed") %>
-						</a>
-						<div class="property_details">
-							<h1>
-								<a href="#">ABCXYZ 会社</a>
-							</h1>
-							<h2>アドレス : .....</h2>
-						</div>
-					</li>
-				</div>
-				<div class="col-md-4 col-sm-4 col-xs-12">
-					<li>
-						<a href="#">
-							<%= image_tag("property_3.jpg", :alt => "rss feed") %>
-						</a>
-						<div class="property_details">
-							<h1>
-								<a href="#">ABCXYZ 会社</a>
-							</h1>
-							<h2>アドレス : .....</h2>
-						</div>
-					</li>
-				</div>			
+			<div class="row" >
+        <div class="col-md-4 col-sm-4 col-xs-12"  style="background-color: #e9e9e9"   ng-repeat="company in companies">
+          <% if admin_signed? %>
+          <li class="dropdown pull-left">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="false">
+              <span class="pull-left">...</span></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a tabindex="-1" href="companies/{{company.id}}/edit">Edit</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" ng-click="deleteCompany($index)">Delete</a></li>
+            </ul>
+          </li>
+              <% end %>
+          <li style="background-color: white">
+            <a href="#">
+              <img src="{{company.logo.url}}" alt="rss feed">
+            </a>
+            <div class="property_details">
+              <h1>
+                <a href="#">{{company.name}} 会社</a>
+              </h1>
+              <h2 ng-if="company.address">アドレス : {{company.address}}</h2>
+            </div>
+
+          </li>
+        </div>
 			</div>
-			
+
 		</ul>
 		<div class="more_listing">
-			<a href="#" class="more_listing_btn">View More Listings</a>
+			<a href="" class="more_listing_btn" ng-click="showMore()">View More Listings</a>
 		</div>
 	</div>
 </section>	<!--  end listing section  -->

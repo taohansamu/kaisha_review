@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require_tree .
 //= require angular/angular
 //= require jquery
+//= require app
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
 //= require trix
+//= require bootstrap-hover-dropdown/bootstrap-hover-dropdown
