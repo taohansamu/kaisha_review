@@ -17,11 +17,20 @@
   </div>
     <div class="form-group">
       <%= form.label :logo %>
-      <%= form.file_field :logo, id: :company_logo, class:"form-control", accept: 'image/jpeg,image/gif,image/png' %>
+      <div class="kaisha_logo"  <% if company.logo.url or true  %>
+           style="background-image: url(<%= company.logo.url %>");
+           <% end %>>
+        <%= form.file_field :logo, id: :company_logo, class:"form-control", accept: 'image/jpeg,image/gif,image/png', src: company.logo.url
+        %>
+      </div>
     </div>
     <div class="form-group">
       <%= form.label :cover %>
-      <%= form.file_field :cover, id: :company_cover, class:"form-control", accept: 'image/jpeg,image/gif,image/png' %>
+      <div class="kaisha_cover"  <% if company.cover.url or true  %>
+          style="background-image: url(<%= company.cover.url %>");
+      <% end %>>
+        <%= form.file_field :cover, id: :company_cover, class:"form-control", accept: 'image/jpeg,image/gif,image/png' %>
+      </div>
     </div>
   <div class="form-group">
     <%= form.label :employees %>
@@ -56,3 +65,20 @@
     <%= form.submit %>
   </div>
 <% end %>
+<script type="text/javascript" charset="utf-8">
+    $('.kaisha_cover').uploadPreview({
+        width: '100%',
+        height: '500px',
+        backgroundSize: 'contain',
+        lang: 'en'
+    });
+    $('.kaisha_logo').uploadPreview({
+        width: '200px',
+        height: '200px',
+        backgroundSize: 'cover',
+        fontSize: '16px',
+        borderRadius: '200px',
+        border: '3px solid #dedede',
+        lang: 'en', //language
+    });
+</script>
