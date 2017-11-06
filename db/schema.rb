@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019034339) do
+ActiveRecord::Schema.define(version: 20171101211948) do
 
   create_table "companies", force: :cascade do |t|
     t.integer "user_id"
@@ -30,14 +30,8 @@ ActiveRecord::Schema.define(version: 20171019034339) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.text "comment"
-    t.integer "salary_benefit_rate"
-    t.integer "office_workspace_rate"
-    t.integer "care_about_staff_rate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "reviews" because of following StandardError
+#   Unknown type 'as_json' for column 'user'
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false

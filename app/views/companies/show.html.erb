@@ -1,45 +1,104 @@
-<p id="notice"><%= notice %></p>
+<div ng-controller="CompanyCtrl" data-ng-init="init(<%= @company.id %>) ">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
+  <div class="image">
+    <img width="100%" alt="Episerver Headline Photo" src="<%= @company.cover.url %>">
+  </div>
+  <div class="infomation row">
 
-<p>
-  <strong>Employees:</strong>
-  <%= @company.employees %>
-</p>
+    <div class="logo-container col-md-2">
+      <%= image_tag(@company.logo.url, alt: "company logo") %>
 
-<p>
-  <strong>Website:</strong>
-  <%= @company.website %>
-</p>
+    </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @company.address %>
-</p>
+    <div class="info col-md-7">
 
-<p>
-  <strong>Estabish:</strong>
-  <%= @company.estabish %>
-</p>
+      <h1 class="title">
+        <%= @company.name %>
+      </h1>
+      <span>
+			<i class="fa fa-map-marker"></i>
+        <%= @company.address %>
+		</span>
 
-<p>
-  <strong>Investment:</strong>
-  <%= @company.investment %>
-</p>
+      <div class="company-info">
+        <i class="fa fa-asterisk"></i>
+        <span>
+			Product
+			</span>
+        <i class="fa fa-user-o"></i>
+        <span>
+			<%= @company.employees %>
+			</span>
 
-<p>
-  <strong>Cover:</strong>
-  <%= @company.cover %>
-</p>
 
-<p>
-  <strong>Rank:</strong>
-  <%= @company.rank %>
-</p>
+        <span class="name"><i class="fa fa-usd"></i><%= @company.investment ? @company.investment : ' No info' %></span>
 
-<%= render 'reviews/review' %>
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+      </div>
+      <div class="working-date">
+        <i class="fa fa-calendar"></i>
+        <span>
+		Monday - Friday
+		</span>
+      </div>
+      <div class="overtime">
+        <i class="fa fa-external-link"></i>
+        <span>
+		<%= link_to @company.name, @company.website %>
+		</span>
+      </div>
+    </div>
+    <div class="button col-md-3">
+
+      <a class="ibutton ibutton-red">Add a review</a>
+      <a class="ibutton ibutton-white">Follow</a>
+    </div>
+
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-8 overview-info">
+      <ul class="navigation">
+        <li class="active navigation__item overview">
+          <a data-toggle="tab" href="#overview">Overview</a>
+          <div class="corner-bottom-right-overlay"></div>
+          <div class="corner-bottom-right-curve"></div>
+        </li>
+        <li class="navigation__item review-tab disable">
+          <a data-toggle="tab" href="#review">4 Reviews</a>
+          <div class="corner-bottom-right-overlay"></div>
+          <div class="corner-bottom-right-curve"></div>
+          <div class="corner-bottom-left-overlay"></div>
+          <div class="corner-bottom-left-curve"></div>
+        </li>
+
+      </ul>
+
+      <div class="tab-content">
+        <div id="overview" class="tab-pane fade in active paragraph">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-11">
+              <h3><%= @company.name %></h3>
+              <div class="trix-content">
+                <%= @company.overview.html_safe %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="review" class="tab-pane fade">
+          <%= render "listreview" %>
+        </div>
+      </div>
+    </div>
+    <% if user_signed_in? %>
+        <div id="" class="col-md-4">
+          <%= render "reviews/form" %>
+        </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Edit', edit_company_path(@company) %> |
+  <%= link_to 'Back', companies_path %>
+
+</div>

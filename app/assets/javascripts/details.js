@@ -9,12 +9,25 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+//
 //= require rails-ujs
-//= require angular/angular
+//= require_tree .
 //= require jquery
-//= require remarkable-bootstrap-notify
-//= require app
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
-//= require trix
-//= require bootstrap-hover-dropdown/bootstrap-hover-dropdown
-//= require upload-image-preview/jquery.upload_preview.min.js
+$(document).ready(function() {
+	console.log(1);
+	$('.navigation__item').click(function(){
+	    if($(this).hasClass('overview')) {
+	    	$('.overview').addClass('active');
+	    	$('.overview').removeClass('disable');
+	    	$('.review-tab').addClass('disable');
+	    	$('.review-tab').removeClass('active');
+	    } else {
+	    	$('.review-tab').addClass('active');
+	    	$('.review-tab').removeClass('disable');
+	    	$('.overview').addClass('disable');
+	    	$('.overview').removeClass('active');
+	    }
+	    ;
+	});
+ } );

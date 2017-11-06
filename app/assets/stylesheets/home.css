@@ -125,7 +125,7 @@ img{max-width:100%;}
     
     width: 38px;
     height: 38px;
-    float: left;
+    float: none;
 	/*-- agileits --*/
     display: inline-block;
 }
@@ -143,7 +143,7 @@ img{max-width:100%;}
     
 }
 .login-ic input[type="email"],.login-ic input[type="text"],.login-ic  input[type="password"] {
-	    float: left;
+	float: none;
     background: none;
     outline: none;
     font-size: 15px;
@@ -339,7 +339,6 @@ body {
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
   -o-transition: 0.5s all;
-}
 }
 .social-login {
     margin-top: 35px;

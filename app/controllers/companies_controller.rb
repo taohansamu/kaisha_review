@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @review = Review.find_by({user_id: current_user.id, company_id: params[:id]})
   end
 
   # GET /companies/new
