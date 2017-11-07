@@ -16,5 +16,4 @@
 //= require app
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
 //= require trix
-//= require bootstrap-hover-dropdown/bootstrap-hover-dropdown
 //= require upload-image-preview/jquery.upload_preview.min.js

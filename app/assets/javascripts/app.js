@@ -51,10 +51,18 @@ function homeController($scope, companies) {
 }
 
 function companyController($scope, reviews) {
+    $scope.matchLabel = {
+        'care_rate':'Care to Staff rate',
+        'comment':'Comment',
+        'salary_rate':'Salary rate',
+        'workspace_rate':'Workspace rate',
+        'summary_rate':'Summary rate',
+    }
     $scope.init = function (company_id) {
         $scope.company_id = company_id;
         $scope.reviews;
         $scope.page = 1;
+        $scope.errors = null;
         getReviews($scope.company_id, $scope.page);
         getCurrentReview($scope.company_id);
 
@@ -89,6 +97,7 @@ function companyController($scope, reviews) {
         return input;
     };
     $scope.createReview = function () {
+        $scope.success = false;
         var review = {};
         var review_form = $('#review_form').serializeArray().reduce(function (obj, item) {
             obj[item.name] = item.value;
@@ -100,33 +109,48 @@ function companyController($scope, reviews) {
         review.salary_rate = review_form.salary_rate;
         review.care_rate = review_form.care_rate;
         review.summary_rate = review_form.summary_rate;
-
+        review.title = review_form.title;
         if (!$scope.current_review) {
             reviews.createReview(review, $scope.company_id)
                 .then(function (response) {
+                    $scope.errors = null;
+                    $scope.success = true;
                     $scope.current_review = response.data;
                     console.log(response.data);
                 }, function (error) {
+                    $scope.errors = error.data;
                     console.log(error);
                 })
         }
         else {
             reviews.updateReview(review, $scope.company_id)
                 .then(function (response) {
+                    $scope.errors = null;
+                    $scope.success = false;
                     $scope.current_review = response.data;
-                    // Notification.success('DM');
-                    $.notify('I will not close until my delay is up.', {
-                        placement: {
-                            from: 'bottom',
-                            align: 'left'
-                        }
-                    });
+                    
+                    $scope.success = true;
                     $scope.current_review = response.data;
                 }, function (error) {
+                    $scope.errors = error.data;
                     console.log(error);
                 })
         }
     }
+    $scope.deleteReview = function () {
+        if (confirm("sure to delete")) {
+// TODO:
+            debugger
+            reviews.deleteReview($scope.current_review.id, $scope.company_id)
+                .then(function () {
+                    // $('.stars').attr('data-rating',0);
+                    delete $scope.current_review;
+                }, function (errors) {
+                    console.log(errors.data);
+                })
+        }
+    }
+
 }
 
 function reviewsService($http) {
@@ -148,7 +172,7 @@ function reviewsService($http) {
         return $http.put(urlBase + '/' + company_id + '/reviews' + '/' + review.id, review);
     };
     this.deleteReview = function (id, company_id) {
-        return $http.delete(urlBase + '/' + id + '.json');
+        return $http.delete(urlBase + '/' + company_id + '/reviews/' + id + '.json');
     };
 }
 

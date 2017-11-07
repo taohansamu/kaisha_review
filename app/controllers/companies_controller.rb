@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
 
-  before_action :authenticate_user!, only: [:create, :destroy, :update, :edit]
+  before_action :authenticate_user!, only: [:create, :destroy, :update, :edit, :show]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   # GET /companies
@@ -14,6 +14,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @review = Review.find_by({user_id: current_user.id, company_id: params[:id]})
+    # @review = Review.where('user_id != ? AND company_id = ?', current_user.id, params[:id]).take;
   end
 
   # GET /companies/new
