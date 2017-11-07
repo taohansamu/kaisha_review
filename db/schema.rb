@@ -30,9 +30,6 @@ ActiveRecord::Schema.define(version: 20171107033516) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
-# Could not dump table "reviews" because of following StandardError
-#   Unknown type 'as_json' for column 'user'
-
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"

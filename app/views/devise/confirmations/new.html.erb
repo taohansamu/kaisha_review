@@ -2,18 +2,18 @@
 <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6 well background-white">
-        <h2>Resend confirmation instructions</h2>
+        <h2>確認の指示を再送信</h2>
 
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= devise_error_messages! %>
 
         <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email,class:'form-control', autofocus: true ,value:"Your e-mail address",onfocus:"this.value = '';",onblur:"if (this.value == '') {this.value = 'Your e-mail address';}" %>
+            <%= f.email_field :email,class:'form-control', autofocus: true ,value:"あなたのメールアドレス",onfocus:"this.value = '';",onblur:"if (this.value == '') {this.value = 'あなたのメールアドレス';}" %>
         </div>
 
         <div class="actions">
-            <%= f.submit "Resend confirmation instructions",class:"submit-button" %>
+            <%= f.submit "確認の指示を再送信",class:"submit-button" %>
         </div>
         <% end %>
 

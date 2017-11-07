@@ -1,6 +1,6 @@
 <div class="panel panel-default company-ratings">
     <div class="panel-heading">
-        <h3 class="panel-title">Your Reviews</h3>
+        <h3 class="panel-title">あなたのレビュー</h3>
     </div>
     <div class="panel-body disable-user-select">
         <style>
@@ -26,36 +26,36 @@
                 <!-- Show Errors -->
                 <ul ng-show="errors" style="list-style-type: circle;" class="alert alert-warning">
                     <li ng-show="errors.title">
-                        <span style="color:red">Title: {{errors.title.toString()}}</span>
+                        <span style="color:red">タイトル: {{errors.title.toString()}}</span>
                     </li>
                     <li ng-show="errors.comment">
-                        <span style="color:red">Comment: {{errors.comment.toString()}}</span>
+                        <span style="color:red">コメント: {{errors.comment.toString()}}</span>
                     </li>
                     <li ng-show="errors.workspace_rate">
-                        <span style="color:red">Workspace rate: {{errors.workspace_rate.toString()}}</span>
+                        <span style="color:red">ワークスペース・レート: {{errors.workspace_rate.toString()}}</span>
                     </li>
                     <li ng-show="errors.salary_rate">
-                        <span style="color:red">Salary rate: {{errors.salary_rate.toString()}}</span>
+                        <span style="color:red">給料・レート: {{errors.salary_rate.toString()}}</span>
                     </li>
                     <li ng-show="errors.care_rate">
-                        <span style="color:red">Care to Staff rate: {{errors.care_rate.toString()}}</span>
+                        <span style="color:red">スタッフへのケア・レート: {{errors.care_rate.toString()}}</span>
                     </li>
                     <li ng-show="errors.summary_rate">
-                        <span style="color:red">Summary rate: {{errors.summary_rate.toString()}}</span>
+                        <span style="color:red">概要・レート: {{errors.summary_rate.toString()}}</span>
                     </li>
                 </ul>
                 <div class="alert alert-success" ng-show="success">
-                    <strong>Success!</strong>
+                    <strong>成功!</strong>
                 </div>
 
                 <form accept-charset="UTF-8" id="review_form" class="form-horizontal" ng-submit="createReview()">
                     <div class="form-group">
-                        <label for="title" class="control-label">Title</label>
+                        <label for="title" class="control-label">タイトル</label>
                         <input type="text" class="form-control" name="title" placeholder="Enter title"
                          ng-value="current_review.title">
                     </div>
                     <div class="form-group">
-                        <label for="new-review" class="control-label">Review</label>
+                        <label for="new-review" class="control-label">レビュー</label>
                         <textarea class="form-control animated" cols="50" id="new-review" ng-value="current_review.comment" name="comment" placeholder="Enter your review here..."
                             rows="5"></textarea>
                     </div>
@@ -63,7 +63,7 @@
                         <input id="workspace-ratings-hidden" name="workspace_rate" <% if @review %> value="
                         <%= @review.workspace_rate %>"
                             <% end %> ng-model="current_review.workspace_rate" type="hidden">
-                                <lable class="control-label col-md-4">Workspace</lable>
+                                <lable class="control-label col-md-4">ワークスペース</lable>
                                 <div id="workspace_stars" class="stars starrr col-md-8" <% if @review %> data-rating="
                                     <%= @review.workspace_rate %>"
                                         <% end %>></div>
@@ -72,7 +72,7 @@
                         <input id="salary-ratings-hidden" name="salary_rate" <% if @review %> value="
                         <%= @review.salary_rate %>"
                             <% end %> ng-model="current_review.salary_rate" type="hidden">
-                                <lable class="control-label col-md-4">Salary</lable>
+                                <lable class="control-label col-md-4">給料</lable>
                                 <div id="salary_stars" class="stars starrr col-md-8" <% if @review %> data-rating="
                                     <%= @review.salary_rate %>"
                                         <% end %>></div>
@@ -81,7 +81,7 @@
                         <input id="care-ratings-hidden" name="care_rate" <% if @review %> value="
                         <%= @review.care_rate %>"
                             <% end %> ng-model="current_review.care_rate" type="hidden">
-                                <lable class="control-label col-md-4">Care to staff</lable>
+                                <lable class="control-label col-md-4">スタッフへのケア</lable>
                                 <div id="care_stars" class="stars starrr col-md-8" <% if @review %> data-rating="
                                     <%= @review.care_rate %>"
                                         <% end %>></div>
@@ -90,18 +90,18 @@
                         <input id="summary-ratings-hidden" name="summary_rate" <% if @review %> value="
                         <%= @review.summary_rate %>"
                             <% end %> ng-model="current_review.summary_rate" type="hidden">
-                                <lable class="control-label col-md-4">Summary</lable>
+                                <lable class="control-label col-md-4">概要</lable>
                                 <div id="summary_stars" class="stars starrr col-md-8" <% if @review %> data-rating="
                                     <%= @review.summary_rate %>"
                                         <% end %>></div>
                     </div>
                     <!-- <button class="ibutton ibutton-red" type="submit" >Save</button> -->
                     <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Save</button>
+                            <button class="btn btn-primary" type="submit">セーブ</button>
                             
                     </div>
                 </form>
-                <button ng-show="current_review" class="btn btn-danger" ng-click="deleteReview()">Delete</button>
+                <button ng-show="current_review" class="btn btn-danger" ng-click="deleteReview()">削除</button>
             </div>
         </div>
         <script type="text/javascript" charset="utf-8">
