@@ -17,3 +17,4 @@
 //= require bootstrap-sass-official/assets/javascripts/bootstrap
 //= require trix
 //= require upload-image-preview/jquery.upload_preview.min.js
+//= require raty-js/lib/jquery.raty.js

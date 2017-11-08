@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:update_profile ]
   def update_profile
     @user = current_user
     if current_user.update_attributes(user_params)
@@ -7,6 +8,11 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def following
+    @user  = User.find(params[:id])
+    @companies = @user.following
   end
 
   private

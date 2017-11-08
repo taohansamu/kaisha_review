@@ -97,11 +97,14 @@
                     </div>
                     <!-- <button class="ibutton ibutton-red" type="submit" >Save</button> -->
                     <div class="form-group">
-                            <button class="btn btn-primary" type="submit">Save</button>
-                            
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <button class="btn btn-primary btn-block" type="submit">Save</button>
+                        </div>
+                        <div class="col-md-1"></div>
                     </div>
                 </form>
-                <button ng-show="current_review" class="btn btn-danger" ng-click="deleteReview()">Delete</button>
+                <button ng-show="current_review" class="btn btn-link" ng-click="deleteReview()">Delete</button>
             </div>
         </div>
         <script type="text/javascript" charset="utf-8">

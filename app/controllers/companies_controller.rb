@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
 
   before_action :authenticate_user!, only: [:create, :destroy, :update, :edit, :show]
   before_action :set_company, only: [:show, :edit, :update, :destroy]
-
+  before_action :calculate, only: [:show]
   # GET /companies
   # GET /companies.json
   def index
@@ -13,6 +13,9 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    if current_user.following?(@company)
+      @relationship = current_user.active_relationships.find_by({followed_id: params[:id]})
+    end
     @review = Review.find_by({user_id: current_user.id, company_id: params[:id]})
     # @review = Review.where('user_id != ? AND company_id = ?', current_user.id, params[:id]).take;
   end
@@ -75,5 +78,15 @@ class CompaniesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.require(:company).permit(:name, :logo, :cover, :employees, :website, :address, :estabish, :investment, :overview)
+    end
+    def calculate
+      company = Company.find(params[:id])
+      @avg = company.reviews.average(:summary_rate);
+      @review_total = company.reviews.count
+      @five_star_total = company.reviews.where(:summary_rate => 5).count
+      @four_star_total  = company.reviews.where(:summary_rate => 4).count
+      @three_star_total = company.reviews.where(:summary_rate => 3).count
+      @two_star_total = company.reviews.where(:summary_rate => 2).count
+      @one_star_total = company.reviews.where(:summary_rate => 1).count
     end
 end

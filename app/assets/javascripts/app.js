@@ -1,4 +1,4 @@
-var app = angular.module('mainApp',[]);
+var app = angular.module('mainApp', []);
 app.config(["$httpProvider", function ($httpProvider) {
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
 }
@@ -6,9 +6,11 @@ app.config(["$httpProvider", function ($httpProvider) {
 ]);
 app.service('companies', ['$http', companiesService]);
 app.service('reviews', ['$http', reviewsService]);
+app.service('relationships', ['$http', relationshipsService]);
 app.controller('HomeCtrl', ['$scope', 'companies', homeController]);
-app.controller('CompanyCtrl', ['$scope', 'reviews', companyController]);
-
+app.controller('CompanyCtrl', ['$scope', 'reviews', 'relationships', companyController]);
+app.controller('RateCtrl', ['$scope', rateController]);
+app.controller('FollowingCtrl', ['$scope', 'relationships', followingController])
 function homeController($scope, companies) {
     $scope.status;
     $scope.companies;
@@ -50,22 +52,15 @@ function homeController($scope, companies) {
     }
 }
 
-function companyController($scope, reviews) {
-    $scope.matchLabel = {
-        'care_rate':'Care to Staff rate',
-        'comment':'Comment',
-        'salary_rate':'Salary rate',
-        'workspace_rate':'Workspace rate',
-        'summary_rate':'Summary rate',
-    }
-    $scope.init = function (company_id) {
+function companyController($scope, reviews, relationships) {
+    $scope.init = function (company_id, relationship_id) {
+        $scope.relationship_id = relationship_id;
         $scope.company_id = company_id;
         $scope.reviews;
         $scope.page = 1;
         $scope.errors = null;
         getReviews($scope.company_id, $scope.page);
         getCurrentReview($scope.company_id);
-
         function getCurrentReview(company_id) {
             reviews.getCurrentReview(company_id)
                 .then(function (response) {
@@ -128,7 +123,7 @@ function companyController($scope, reviews) {
                     $scope.errors = null;
                     $scope.success = false;
                     $scope.current_review = response.data;
-                    
+
                     $scope.success = true;
                     $scope.current_review = response.data;
                 }, function (error) {
@@ -139,8 +134,6 @@ function companyController($scope, reviews) {
     }
     $scope.deleteReview = function () {
         if (confirm("sure to delete")) {
-// TODO:
-            debugger
             reviews.deleteReview($scope.current_review.id, $scope.company_id)
                 .then(function () {
                     // $('.stars').attr('data-rating',0);
@@ -150,19 +143,64 @@ function companyController($scope, reviews) {
                 })
         }
     }
+    $scope.follow = function () {
+        relationships.createRelationships({ followed_id: $scope.company_id})
+            .then(function (response) {
+                console.log(response.data);
+                $scope.relationship_id = response.data.id;
+                $('#unfollow_btn').removeClass('hide');
+                $('#follow_btn').addClass('hide');
+            }, function (errors) {
+                console.log(errors.data);
+            })
+        
+    }
+    $scope.unfollow = function () {
+        relationships.deleteRelationships($scope.relationship_id)
+            .then(function(){
+                $scope.relationship_id = null;
+                $('#follow_btn').removeClass('hide');
+                $('#unfollow_btn').addClass('hide');
+            }, function (errors) {
+                console.log(errors.data);
+            })
+    }
 
 }
+function rateController($scope) {
+    
+}
+function followingController($scope, relationships) {
+    $scope.follow = function (company_id) {
+        relationships.createRelationships({ followed_id: company_id })
+            .then(function (response) {
+                $('#unfollow_btn-'+company_id).removeClass('hide');
+                $('#follow_btn-'+company_id).addClass('hide');
+            }, function (errors) {
+                console.log(errors.data);
+            })
 
+    }
+    $scope.unfollow = function (company_id) {
+        relationships.deleteRelationshipsByCompanyId(company_id)
+            .then(function () {
+                $('#follow_btn-'+company_id).removeClass('hide');
+                $('#unfollow_btn-'+company_id).addClass('hide');
+            }, function (errors) {
+                console.log(errors.data);
+            })
+    }
+}
 function reviewsService($http) {
     var urlBase = '/companies';
     this.getCurrentReview = function (companyId) {
         return $http.get(urlBase + '/' + companyId + '/reviews/current_review', {
-            params: {company_id: companyId}
+            params: { company_id: companyId }
         });
     }
     this.getReviews = function (companyId, page) {
         return $http.get(urlBase + '/' + companyId + '/reviews', {
-            params: {company_id: companyId, page: page}
+            params: { company_id: companyId, page: page }
         });
     }
     this.createReview = function (review, company_id) {
@@ -175,17 +213,29 @@ function reviewsService($http) {
         return $http.delete(urlBase + '/' + company_id + '/reviews/' + id + '.json');
     };
 }
+function relationshipsService($http) {
+    var urlBase = '/relationships';
+    this.createRelationships = function (relationships) {
+        return $http.post(urlBase, relationships);
+    }
+    this.deleteRelationships = function (id) {
+        return $http.delete(urlBase + '/' + id);
+    };
+    this.deleteRelationshipsByCompanyId = function (id) {
+        return $http.delete('/destroy_relationship_by_company/' + id);
+    };
+}
 
 function companiesService($http) {
     var urlBase = '/companies'
     this.getCompanies = function () {
         return $http.get(urlBase, {
-            params: {page: $scope.page}
+            params: { page: $scope.page }
         });
     };
     this.getCompaniesByPage = function (page) {
         return $http.get(urlBase, {
-            params: {page: page}
+            params: { page: page }
         });
     };
 

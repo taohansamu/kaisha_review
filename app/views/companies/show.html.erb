@@ -1,5 +1,7 @@
-<div ng-controller="CompanyCtrl" data-ng-init="init(<%= @company.id %>) ">
-  <p id="notice"><%= notice %></p>
+<div ng-controller="CompanyCtrl" data-ng-init="init(<%= @company.id %>,<%= @relationship? @relationship.id : 'null' %>) ">
+  <p id="notice">
+    <%= notice %>
+  </p>
 
   <div class="image">
     <img width="100%" alt="Episerver Headline Photo" src="<%= @company.cover.url %>">
@@ -17,41 +19,48 @@
         <%= @company.name %>
       </h1>
       <span>
-			<i class="fa fa-map-marker"></i>
+        <i class="fa fa-map-marker"></i>
         <%= @company.address %>
-		</span>
+      </span>
 
       <div class="company-info">
         <i class="fa fa-asterisk"></i>
         <span>
-			Product
-			</span>
+          Product
+        </span>
         <i class="fa fa-user-o"></i>
         <span>
-			<%= @company.employees %>
-			</span>
+          <%= @company.employees %>
+        </span>
 
 
-        <span class="name"><i class="fa fa-usd"></i><%= @company.investment ? @company.investment : ' No info' %></span>
+        <span class="name">
+          <i class="fa fa-usd"></i>
+          <%= @company.investment ? @company.investment : ' No info' %>
+        </span>
 
       </div>
       <div class="working-date">
         <i class="fa fa-calendar"></i>
         <span>
-		Monday - Friday
-		</span>
+          Monday - Friday
+        </span>
       </div>
       <div class="overtime">
         <i class="fa fa-external-link"></i>
         <span>
-		<%= link_to @company.name, @company.website %>
-		</span>
+          <%= link_to @company.name, @company.website %>
+        </span>
       </div>
     </div>
     <div class="button col-md-3">
-
-      <a class="ibutton ibutton-red">Add a review</a>
-      <a class="ibutton ibutton-white">Follow</a>
+      <% if current_user.following?(@company) %>
+        <a id="unfollow_btn" ng-click="unfollow()" class="btn btn-danger btn-lg btn-block">Unfollow</a>
+        <a id="follow_btn" ng-click="follow()" class="btn btn-primary btn-lg btn-block hide">Follow</a>
+      <% else %>
+        <a id="unfollow_btn" ng-click="unfollow()" class="btn btn-danger btn-lg btn-block hide">Unfollow</a>
+        <a id="follow_btn" ng-click="follow()" class="btn btn-primary btn-lg btn-block">Follow</a>
+      <% end %>
     </div>
 
   </div>
@@ -79,7 +88,9 @@
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-11">
-              <h3><%= @company.name %></h3>
+              <h3>
+                <%= @company.name %>
+              </h3>
               <div class="trix-content">
                 <%= @company.overview.html_safe %>
               </div>
@@ -92,13 +103,13 @@
       </div>
     </div>
     <% if user_signed_in? %>
-        <div id="" class="col-md-4">
-          <%= render "reviews/form" %>
-        </div>
-    <% end %>
+      <div id="" class="col-md-4">
+        <%= render "reviews/form" %>
+      </div>
+      <% end %>
   </div>
 
   <%= link_to 'Edit', edit_company_path(@company) %> |
-  <%= link_to 'Back', companies_path %>
+    <%= link_to 'Back', companies_path %>
 
 </div>

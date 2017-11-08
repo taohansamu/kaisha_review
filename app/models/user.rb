@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_many :companies, dependent: :destroy
   has_many :reviews,    dependent: :destroy
+  has_many :active_relationships, class_name:  "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+  has_many :following, through: :active_relationships, source: :followed
   default_scope -> { order(created_at: :desc) }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -12,7 +16,21 @@ class User < ApplicationRecord
   # User Avatar Validation
   validates_integrity_of  :avatar
   validates_processing_of :avatar
-  
+  # Follows a user.
+  def follow(company)
+    following << company
+  end
+
+  # Unfollows a user.
+  def unfollow(company)
+    following.delete(company)
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(company)
+    following.include?(company)
+  end
+
   def self.new_with_session params, session
     super.tap do |user|
       if data = session["devise.facebook_data"] &&

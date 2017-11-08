@@ -16,6 +16,7 @@
  *= require 'font-awesome'
  *= require 'home'
  *= require trix
+ *= require raty-js/lib/jquery.raty.css
  */
 /*flash*/
 .alert-error {
