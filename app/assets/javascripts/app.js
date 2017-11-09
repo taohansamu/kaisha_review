@@ -21,10 +21,10 @@ function homeController($scope, companies) {
         companies.getCompaniesByPage(page)
             .then(function (response) {
                 $scope.companies = response.data;
-                console.log(response)
+                //console.log(response)
             }, function (error) {
                 $scope.status = 'Unable to load companies data' + error;
-                console.log(error);
+                //console.log(error);
             })
     }
 
@@ -46,7 +46,7 @@ function homeController($scope, companies) {
                     // getCompanies($scope.page)
                     $scope.companies.splice(index, 1);
                 }, function (error) {
-                    console.log(error);
+                    ////console.log(error);
                 })
         }
     }
@@ -65,9 +65,9 @@ function companyController($scope, reviews, relationships) {
             reviews.getCurrentReview(company_id)
                 .then(function (response) {
                     $scope.current_review = response.data;
-                    console.log(response.data);
+                    //console.log(response.data);
                 }, function (error) {
-                    console.log(error);
+                    //console.log(error);
                 })
         }
 
@@ -78,7 +78,7 @@ function companyController($scope, reviews, relationships) {
                     $scope.reviews = response.data;
                 }, function (error) {
                     $scope.status = 'Unable to load reviews data' + error;
-                    console.log(error);
+                    //console.log(error);
                 })
         }
     }
@@ -111,10 +111,10 @@ function companyController($scope, reviews, relationships) {
                     $scope.errors = null;
                     $scope.success = true;
                     $scope.current_review = response.data;
-                    console.log(response.data);
+                    //console.log(response.data);
                 }, function (error) {
                     $scope.errors = error.data;
-                    console.log(error);
+                    //console.log(error);
                 })
         }
         else {
@@ -128,7 +128,7 @@ function companyController($scope, reviews, relationships) {
                     $scope.current_review = response.data;
                 }, function (error) {
                     $scope.errors = error.data;
-                    console.log(error);
+                    //console.log(error);
                 })
         }
     }
@@ -139,19 +139,19 @@ function companyController($scope, reviews, relationships) {
                     // $('.stars').attr('data-rating',0);
                     delete $scope.current_review;
                 }, function (errors) {
-                    console.log(errors.data);
+                    //console.log(errors.data);
                 })
         }
     }
     $scope.follow = function () {
         relationships.createRelationships({ followed_id: $scope.company_id})
             .then(function (response) {
-                console.log(response.data);
+                //console.log(response.data);
                 $scope.relationship_id = response.data.id;
                 $('#unfollow_btn').removeClass('hide');
                 $('#follow_btn').addClass('hide');
             }, function (errors) {
-                console.log(errors.data);
+                //console.log(errors.data);
             })
         
     }
@@ -162,7 +162,7 @@ function companyController($scope, reviews, relationships) {
                 $('#follow_btn').removeClass('hide');
                 $('#unfollow_btn').addClass('hide');
             }, function (errors) {
-                console.log(errors.data);
+                //console.log(errors.data);
             })
     }
 
@@ -177,7 +177,7 @@ function followingController($scope, relationships) {
                 $('#unfollow_btn-'+company_id).removeClass('hide');
                 $('#follow_btn-'+company_id).addClass('hide');
             }, function (errors) {
-                console.log(errors.data);
+                //console.log(errors.data);
             })
 
     }
@@ -187,7 +187,7 @@ function followingController($scope, relationships) {
                 $('#follow_btn-'+company_id).removeClass('hide');
                 $('#unfollow_btn-'+company_id).addClass('hide');
             }, function (errors) {
-                console.log(errors.data);
+                //console.log(errors.data);
             })
     }
 }
