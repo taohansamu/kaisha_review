@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # get 'home/view'
   # get 'home/reviews'
   get 'companies/:company_id/reviews/current_review' => 'reviews#get_current_review'
+  devise_for :users, controllers:{omniauth_callbacks: "users/omniauth_callbacks"}
   resources :skills
   resources :types
   resources :companies do
@@ -24,7 +25,6 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships,       only: [:create, :destroy]
-  devise_for :users, controllers:{omniauth_callbacks: "users/omniauth_callbacks"}
   root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
