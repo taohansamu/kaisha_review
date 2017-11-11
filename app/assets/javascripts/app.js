@@ -106,6 +106,7 @@ function companyController($scope, reviews, relationships) {
         review.summary_rate = review_form.summary_rate;
         review.title = review_form.title;
         if (!$scope.current_review) {
+            console.log('create review');
             reviews.createReview(review, $scope.company_id)
                 .then(function (response) {
                     $scope.errors = null;
@@ -118,10 +119,12 @@ function companyController($scope, reviews, relationships) {
                 })
         }
         else {
+            console.log('update review')
             reviews.updateReview(review, $scope.company_id)
                 .then(function (response) {
                     $scope.errors = null;
                     $scope.success = false;
+                    // debugger
                     $scope.current_review = response.data;
 
                     $scope.success = true;

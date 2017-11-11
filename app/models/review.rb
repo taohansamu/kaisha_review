@@ -8,4 +8,6 @@ class Review < ApplicationRecord
   validates :workspace_rate, presence: true
   validates :summary_rate, presence: true
   validates :title, presence: true
+  validates :user_id, uniqueness: { scope: :company_id,
+    message: "Each user can only be reviewed once" }
 end
