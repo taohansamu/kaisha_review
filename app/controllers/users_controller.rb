@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:update_profile ]
+
   def update_profile
     @user = current_user
-    if current_user.update_attributes(user_params)
+    if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to edit_user_registration_path(@user)
     else
-      render 'edit'
+      print @user.errors
+      render 'devise/registrations/edit'
     end
   end
 

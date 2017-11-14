@@ -5,7 +5,7 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
       t.string :name, null: false
       t.string :logo, null: false
       t.string :cover
-      t.textarea  :overview
+      t.text  :overview
       t.integer :employees
       t.string :website
       t.string :address
