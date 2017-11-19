@@ -88,6 +88,57 @@
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-11">
+              <div id="chart" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+              <script>
+                Highcharts.chart('chart', {
+
+                    chart: {
+                      polar: true,
+                      type: 'line'
+                    },
+
+                    title: {
+                      text: 'チャート',
+                      x: -80
+                    },
+
+                    pane: {
+                      size: '80%'
+                    },
+
+                    xAxis: {
+                      categories: ['Salary & benefits', 'Training & learning', 'Management cares about me', 'Culture & fun',
+                        'Office & workspace', 'OT'],
+                      tickmarkPlacement: 'on',
+                      lineWidth: 0
+                    },
+
+                    yAxis: {
+                      gridLineInterpolation: 'polygon',
+                      lineWidth: 0,
+                      min: 0
+                    },
+
+                    tooltip: {
+                      shared: true,
+                      pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+                    },
+
+                    legend: {
+                      align: 'right',
+                      verticalAlign: 'top',
+                      y: 70,
+                      layout: 'vertical'
+                    },
+
+                    series: [{
+                      name: 'Allocated Budget',
+                      data: [43000, 19000, 60000, 35000, 17000, 10000],
+                      pointPlacement: 'on'
+                    }]
+
+                  });
+              </script>
               <h3>
                 <%= @company.name %>
               </h3>
