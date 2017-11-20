@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111103733) do
+ActiveRecord::Schema.define(version: 20171120072017) do
 
   create_table "companies", force: :cascade do |t|
     t.integer "user_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20171111103733) do
   end
 
 # Could not dump table "reviews" because of following StandardError
-#   Unknown type 'as_json' for column 'user'
+#   Unknown type '' for column 'user'
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false

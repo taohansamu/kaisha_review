@@ -42,6 +42,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params[:review].permit(:comment, :workspace_rate,:salary_rate, :care_rate, :summary_rate, :company_id, :title, :page)
+    params[:review].permit(:comment, :workspace_rate, :salary_rate, :care_rate, :training_rate, :culture_rate, :ot_rate, :summary_rate, :company_id, :title, :page)
   end
 end

@@ -95,16 +95,16 @@ function companyController($scope, reviews, relationships) {
         $scope.success = false;
         var review = {};
         var review_form = $('#review_form').serializeArray().reduce(function (obj, item) {
-            obj[item.name] = item.value;
+            review[item.name]=obj[item.name] = item.value;
             return obj;
         }, {});
         review.company_id = $scope.company_id;
-        review.comment = review_form.comment;
-        review.workspace_rate = review_form.workspace_rate;
-        review.salary_rate = review_form.salary_rate;
-        review.care_rate = review_form.care_rate;
-        review.summary_rate = review_form.summary_rate;
-        review.title = review_form.title;
+        // review.comment = review_form.comment;
+        // review.workspace_rate = review_form.workspace_rate;
+        // review.salary_rate = review_form.salary_rate;
+        // review.care_rate = review_form.care_rate;
+        // review.summary_rate = review_form.summary_rate;
+        // review.title = review_form.title;
         if (!$scope.current_review) {
             console.log('create review');
             reviews.createReview(review, $scope.company_id)

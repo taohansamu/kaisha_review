@@ -1,3 +1,8 @@
+<style>
+  .highcharts-credits {
+    display: none
+  }
+</style>
 <div ng-controller="CompanyCtrl" data-ng-init="init(<%= @company.id %>,<%= @relationship? @relationship.id : 'null' %>) ">
   <p id="notice">
     <%= notice %>
@@ -107,8 +112,7 @@
                     },
 
                     xAxis: {
-                      categories: ['Salary & benefits', 'Training & learning', 'Management cares about me', 'Culture & fun',
-                        'Office & workspace', 'OT'],
+                      categories: ['Management cares about me', 'Salary & benefits', 'Office & workspace', 'Training & learning', 'Culture & fun', 'OT'],
                       tickmarkPlacement: 'on',
                       lineWidth: 0
                     },
@@ -121,7 +125,7 @@
 
                     tooltip: {
                       shared: true,
-                      pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+                      pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f} star</b><br/>'
                     },
 
                     legend: {
@@ -132,8 +136,8 @@
                     },
 
                     series: [{
-                      name: 'Allocated Budget',
-                      data: [43000, 19000, 60000, 35000, 17000, 10000],
+                      name: 'star number',
+                      data: [<%= @care_rate_total%>, <%= @salary_rate_total%>, <%= @workspace_rate_total%>, <%= @training_rate_total%>, <%=  @culture_rate_total%>, <%=  @ot_rate_total%>],
                       pointPlacement: 'on'
                     }]
 

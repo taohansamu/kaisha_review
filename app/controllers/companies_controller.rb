@@ -88,5 +88,12 @@ class CompaniesController < ApplicationController
       @three_star_total = company.reviews.where(:summary_rate => 3).count
       @two_star_total = company.reviews.where(:summary_rate => 2).count
       @one_star_total = company.reviews.where(:summary_rate => 1).count
+
+      @care_rate_total=company.reviews.sum(:care_rate)
+      @salary_rate_total=company.reviews.sum(:salary_rate)
+      @workspace_rate_total=company.reviews.sum(:workspace_rate)
+      @training_rate_total = company.reviews.sum(:training_rate)
+      @culture_rate_total = company.reviews.sum(:culture_rate)
+      @ot_rate_total = company.reviews.sum(:ot_rate)
     end
 end
