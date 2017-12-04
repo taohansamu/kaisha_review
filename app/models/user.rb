@@ -11,6 +11,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  # to decide whether activity_notification sends notification email to this user
+  acts_as_notification_target email: :email, email_allowed: :confirmed_at
 
   mount_uploader :avatar, AvatarUploader
   # User Avatar Validation

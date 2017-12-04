@@ -23,50 +23,6 @@ body {
   padding: 100px 25px;
 }
 
-.navbar {
-  background-color: $color-pomegranate;
-  border: 0;
-  border-radius: 0;
-  font-family: Montserrat, sans-serif;
-  font-size: 12px !important;
-  letter-spacing: 4px;
-  line-height: 1.42857143 !important;
-  margin-bottom: 0;
-  z-index: 9999;
-
-  li {
-    a {
-      color: $color-white !important;
-    }
-  }
-
-  .navbar-brand {
-    color: $color-white !important;
-  }
-}
-
-.navbar-nav {
-  li.active {
-    a {
-      background-color: $color-white !important;
-      color: $color-mine-shaft !important;
-    }
-  }
-
-  a {
-    &:hover {
-      background-color: $color-white !important;
-      color: $color-mine-shaft !important;
-    }
-  }
-}
-
-.navbar-default {
-  .navbar-toggle {
-    border-color: transparent;
-    color: $color-white !important;
-  }
-}
 
 .dropdown-menu {
   background-color: $color-pomegranate;

@@ -16,6 +16,11 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.user = current_user
     if @review.save
+      # ActivityNotification::Notification.notify :users, @review, key: "review.create", notifier: @review.user, group: @review.company
+      ActivityNotification::Notification.notify :users, @review, key: "review.create", notifier: @review.user, group: @review.company
+      notification_targets(@review, "review.create" ).each do |target_user|
+        ReviewBroadcastJob.perform_later target_user, @review
+      end
       render json: @review
     else
       render json: @review.errors, status: :unprocessable_entity 
@@ -37,6 +42,10 @@ class ReviewsController < ApplicationController
   end
   private
 
+  private
+  def notification_targets review, key
+    (review.company.followers - [review.user]).uniq
+  end
   def set_company
     @company = Company.find(params[:company_id])
   end

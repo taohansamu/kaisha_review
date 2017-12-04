@@ -5,6 +5,7 @@ class Company < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :reviewed_users, through: :reviews, source: :user
   validates :logo, presence: true
   self.per_page = 6
   default_scope -> { order(created_at: :desc) }

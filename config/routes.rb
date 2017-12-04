@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   # get 'home/view'
   # get 'home/reviews'
   get 'companies/:company_id/reviews/current_review' => 'reviews#get_current_review'
-  devise_for :users, controllers:{omniauth_callbacks: "users/omniauth_callbacks"}
+  devise_for :users, controllers:{omniauth_callbacks: "users/omniauth_callbacks", sessions: 'users/sessions'}
+  Rails.application.routes.draw do
+    notify_to :users, controller: 'users/notifications'
+    mount ActionCable.server => '/cable'
+  end
+
   resources :skills
   resources :types
   resources :companies do
@@ -24,6 +29,7 @@ Rails.application.routes.draw do
       get :followers
     end
   end
+
   resources :relationships,       only: [:create, :destroy]
   root to: "home#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

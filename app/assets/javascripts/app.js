@@ -7,18 +7,24 @@ app.config(["$httpProvider", function ($httpProvider) {
 app.service('companies', ['$http', companiesService]);
 app.service('reviews', ['$http', reviewsService]);
 app.service('relationships', ['$http', relationshipsService]);
-app.controller('HomeCtrl', ['$scope', 'companies', homeController]);
+app.controller('HomeCtrl', ['$scope', '$location','$timeout','companies', homeController]);
 app.controller('CompanyCtrl', ['$scope', 'reviews', 'relationships', companyController]);
 app.controller('RateCtrl', ['$scope', rateController]);
 app.controller('FollowingCtrl', ['$scope', 'relationships', followingController])
-function homeController($scope, companies) {
+function homeController($scope, $location,$timeout, companies) {
     $scope.status;
     $scope.companies;
     $scope.page = 1;
-    getCompanies($scope.page);
+    $timeout(function(){
+        // terms = $location.search();
+        // debugger
+        terms = new URLSearchParams(window.location.search)
+        getCompanies($scope.page, terms.get('term'));
+    }, 500)
 
-    function getCompanies(page) {
-        companies.getCompaniesByPage(page)
+
+    function getCompanies(page, term) {
+        companies.getCompaniesByPage(page, term)
             .then(function (response) {
                 $scope.companies = response.data;
                 //console.log(response)
@@ -236,9 +242,9 @@ function companiesService($http) {
             params: { page: $scope.page }
         });
     };
-    this.getCompaniesByPage = function (page) {
+    this.getCompaniesByPage = function (page, term) {
         return $http.get(urlBase, {
-            params: { page: page }
+            params: { page: page, term: term }
         });
     };
 

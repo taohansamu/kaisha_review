@@ -13,4 +13,15 @@ class Review < ApplicationRecord
   validates :title, presence: true
   validates :user_id, uniqueness: { scope: :company_id,
     message: "Each user can only be reviewed once" }
+
+  acts_as_notifiable :users,
+                     targets: ->(review,key) {
+                       (review.company.followers - [review.user]).uniq
+                       # ([review.company.user] + review.company.reviewed_users.to_a - [review.user]).uniq
+                     },
+                     notifiable_path: :recipe_notificable_path
+
+  def recipe_notificable_path
+    company_path id: company.id
+  end
 end
