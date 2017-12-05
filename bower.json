@@ -21,6 +21,7 @@
     "jquery": "^3.2.1",
     "font-awesome": "^4.7.0",
     "bootstrap-sass": "bootstrap-sass-official#^3.3.7",
-    "angular-ui-notification": "^0.3.6"
+    "angular-ui-notification": "^0.3.6",
+    "remarkable-bootstrap-notify": "^3.1.3"
   }
 }

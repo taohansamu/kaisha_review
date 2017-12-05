@@ -17,7 +17,7 @@
 //= require jquery
 //= require remarkable-bootstrap-notify
 //= require app
-//= require bootstrap-sass-official/assets/javascripts/bootstrap
+//= require bootstrap-sass/assets/javascripts/bootstrap
 //= require trix
 //= require upload-image-preview/jquery.upload_preview.min.js
 //= require raty-js/lib/jquery.raty.js

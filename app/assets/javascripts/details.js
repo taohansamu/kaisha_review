@@ -10,10 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require_tree .
-//= require jquery
-//= require bootstrap-sass-official/assets/javascripts/bootstrap
 $(document).ready(function() {
 	console.log(1);
 	$('.navigation__item').click(function(){

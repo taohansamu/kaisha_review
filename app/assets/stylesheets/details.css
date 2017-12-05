@@ -1,9 +1,4 @@
-/*
- *= require_tree .
- *= require_self
- *= require 'bootstrap-sass-official'
- *= require 'font-awesome'
- */
+
  .details-page {
  	background : #e9e9e9;
  }
