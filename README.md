@@ -26,7 +26,9 @@ def confirmation_required?
       false
 end
 ```
-- Trong file `/config/environments/development.rb`: thay  `ENV["GMAIL_USERNAME"]` & `ENV["GMAIL_PASSWORD"]` bằng gmail và mật khẩu thật. Nhớ bật chế độ gửi email từ ngoài cho email.
+- Trong file `/config/environments/development.rb` & `/config/initializers/devise.rb`: thay  `ENV["GMAIL_USERNAME"]` & `ENV["GMAIL_PASSWORD"]` bằng gmail và mật khẩu thật. Nhớ bật chế độ gửi email từ ngoài cho email.
+# Dang nhap bang fb, gg:
+- Trong file `/config/initializers/devise.rb` thay `ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']` bằng các thông tin thật.
 # Create admin
 -   Signup 1 tai khoan thuong
 -   rails c

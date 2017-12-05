@@ -19,6 +19,9 @@
  *= require raty-js/lib/jquery.raty.css
  */
 /*flash*/
+a:hover, a:focus{
+  color: blue !important;
+}
 .alert-error {
     background-color: #f2dede;
     border-color: #eed3d7;
@@ -48,4 +51,11 @@
 }
 .field_with_errors{
     display: block;
+}
+.navbar-inverse .navbar-nav > li > a{
+    color: white !important;
+    font-size: 120%;
+}
+.navbar-inverse .navbar-nav > li > a:hover{
+    color: #9d9d9d !important;
 }
