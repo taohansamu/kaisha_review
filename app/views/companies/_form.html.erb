@@ -34,7 +34,7 @@
     </div>
   <div class="form-group">
     <%= form.label :employees %>
-    <%= form.number_field :employees, id: :company_employees, class:"form-control" %>
+    <%= form.number_field :employees, id: :company_employees, class:"form-control", max: 10000 %>
   </div>
 
   <div class="form-group">
@@ -49,12 +49,12 @@
 
   <div class="form-group">
     <%= form.label :estabish %>
-    <%= form.number_field :estabish, id: :company_estabish, class:"form-control" %>
+    <%= form.number_field :estabish, id: :company_estabish, class:"form-control", max: 100000 %>
   </div>
 
   <div class="form-group">
     <%= form.label :investment %>
-    <%= form.number_field :investment, id: :company_investment, class:"form-control" %>
+    <%= form.number_field :investment, id: :company_investment, class:"form-control", max: 10000 %>
   </div>
 
     <div class="form-group">
@@ -73,12 +73,9 @@
         lang: 'en'
     });
     $('.kaisha_logo').uploadPreview({
-        width: '200px',
+        width: '100%',
         height: '200px',
-        backgroundSize: 'cover',
-        fontSize: '16px',
-        borderRadius: '200px',
-        border: '3px solid #dedede',
-        lang: 'en', //language
-    });
+        backgroundSize: 'contain',
+        lang: 'en'
+      });
 </script>

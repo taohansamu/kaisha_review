@@ -9,6 +9,9 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
+// app/assets/javascripts/cable.js
+//= require js.cookie
+//= require action_cable
 //= require rails-ujs
 //= require angular/angular
 //= require jquery
@@ -18,3 +21,4 @@
 //= require trix
 //= require upload-image-preview/jquery.upload_preview.min.js
 //= require raty-js/lib/jquery.raty.js
+//= require_tree ./channels

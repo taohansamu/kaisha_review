@@ -40,6 +40,15 @@
                     <li ng-show="errors.care_rate">
                         <span style="color:red">Care to Staff rate: {{errors.care_rate.toString()}}</span>
                     </li>
+                    <li ng-show="errors.care_rate">
+                        <span style="color:red">Training & learning rate: {{errors.training_rate.toString()}}</span>
+                    </li>
+                    <li ng-show="errors.care_rate">
+                        <span style="color:red">Culture & fun rate: {{errors.culture_rate.toString()}}</span>
+                    </li>
+                    <li ng-show="errors.care_rate">
+                        <span style="color:red">OT rate: {{errors.ot_rate.toString()}}</span>
+                    </li>
                     <li ng-show="errors.summary_rate">
                         <span style="color:red">Summary rate: {{errors.summary_rate.toString()}}</span>
                     </li>
@@ -84,6 +93,33 @@
                                 <lable class="control-label col-md-4">Care to staff</lable>
                                 <div id="care_stars" class="stars starrr col-md-8" <% if @review %> data-rating="
                                     <%= @review.care_rate %>"
+                                        <% end %>></div>
+                    </div>
+                    <div class="form-group">
+                        <input id="training-ratings-hidden" name="training_rate" <% if @review %> value="
+                        <%= @review.training_rate %>"
+                            <% end %> ng-model="current_review.training_rate" type="hidden">
+                                <lable class="control-label col-md-4">Training & learning</lable>
+                                <div id="training_stars" class="stars starrr col-md-8" <% if @review %> data-rating="
+                                    <%= @review.training_rate %>"
+                                        <% end %>></div>
+                    </div>
+                    <div class="form-group">
+                        <input id="culture-ratings-hidden" name="culture_rate" <% if @review %> value="
+                        <%= @review.culture_rate %>"
+                            <% end %> ng-model="current_review.culture_rate" type="hidden">
+                                <lable class="control-label col-md-4">Culture & fun</lable>
+                                <div id="culture_stars" class="stars starrr col-md-8" <% if @review %> data-rating="
+                                    <%= @review.culture_rate %>"
+                                        <% end %>></div>
+                    </div>
+                    <div class="form-group">
+                        <input id="ot-ratings-hidden" name="ot_rate" <% if @review %> value="
+                        <%= @review.ot_rate %>"
+                            <% end %> ng-model="current_review.ot_rate" type="hidden">
+                                <lable class="control-label col-md-4">OT</lable>
+                                <div id="ot_stars" class="stars starrr col-md-8" <% if @review %> data-rating="
+                                    <%= @review.ot_rate %>"
                                         <% end %>></div>
                     </div>
                     <div class="form-group">
@@ -263,7 +299,9 @@
                     var salaryRatingsField = $('#salary-ratings-hidden');
                     var careRatingsField = $('#care-ratings-hidden');
                     var summaryRatingsField = $('#summary-ratings-hidden');
-
+                    var trainingRatingsField = $('#training-ratings-hidden');
+                    var cultureRatingsField = $('#culture-ratings-hidden');
+                    var otRatingsField = $('#ot-ratings-hidden');
 
                     $('#workspace_stars').on('starrr:change', function (e, value) {
                         workspaceRatingsField.val(value);
@@ -273,6 +311,15 @@
                     });
                     $('#care_stars').on('starrr:change', function (e, value) {
                         careRatingsField.val(value);
+                    });
+                    $('#training_stars').on('starrr:change', function (e, value) {
+                        trainingRatingsField.val(value);
+                    });
+                    $('#culture_stars').on('starrr:change', function (e, value) {
+                        cultureRatingsField.val(value);
+                    });
+                    $('#ot_stars').on('starrr:change', function (e, value) {
+                        otRatingsField.val(value);
                     });
                     $('#summary_stars').on('starrr:change', function (e, value) {
                         summaryRatingsField.val(value);

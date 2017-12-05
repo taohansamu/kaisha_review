@@ -1,3 +1,8 @@
+<style>
+  .highcharts-credits {
+    display: none
+  }
+</style>
 <div ng-controller="CompanyCtrl" data-ng-init="init(<%= @company.id %>,<%= @relationship? @relationship.id : 'null' %>) ">
   <p id="notice">
     <%= notice %>
@@ -88,6 +93,56 @@
           <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-11">
+              <div id="chart" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+              <script>
+                Highcharts.chart('chart', {
+
+                    chart: {
+                      polar: true,
+                      type: 'line'
+                    },
+
+                    title: {
+                      text: 'チャート',
+                      x: -80
+                    },
+
+                    pane: {
+                      size: '80%'
+                    },
+
+                    xAxis: {
+                      categories: ['Management cares about me', 'Salary & benefits', 'Office & workspace', 'Training & learning', 'Culture & fun', 'OT'],
+                      tickmarkPlacement: 'on',
+                      lineWidth: 0
+                    },
+
+                    yAxis: {
+                      gridLineInterpolation: 'polygon',
+                      lineWidth: 0,
+                      min: 0
+                    },
+
+                    tooltip: {
+                      shared: true,
+                      pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f} star</b><br/>'
+                    },
+
+                    legend: {
+                      align: 'right',
+                      verticalAlign: 'top',
+                      y: 70,
+                      layout: 'vertical'
+                    },
+
+                    series: [{
+                      name: 'star number',
+                      data: [<%= @care_rate_total%>, <%= @salary_rate_total%>, <%= @workspace_rate_total%>, <%= @training_rate_total%>, <%=  @culture_rate_total%>, <%=  @ot_rate_total%>],
+                      pointPlacement: 'on'
+                    }]
+
+                  });
+              </script>
               <h3>
                 <%= @company.name %>
               </h3>
