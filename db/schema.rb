@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20171128003227) do
   end
 
 # Could not dump table "reviews" because of following StandardError
-#   Unknown type '' for column 'user'
+#   Unknown type 'as_json' for column 'user'
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
